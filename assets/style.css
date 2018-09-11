@@ -1,0 +1,206 @@
+/* Hides standard hyperlink CSS */
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+a {
+	font-family: 'Roboto', sans-serif;
+}
+
+
+/* Nav Bar CSS */
+ul{
+	margin:0;
+	padding:0;
+}
+
+/* Header */
+header{
+	background:lightblue;
+	color:#ffffff;
+	padding: 0 0px 0 0px;
+	min-height: 50px;
+	border-bottom: #85C1E9 5px solid;
+	box-sizing: border-box;
+}
+header a{
+	color:#ffffff;
+	text-decoration:none;
+	text-transform: capitalize;
+	font-size:25px;
+	padding: 0px;
+}
+header ul{
+	padding:0;
+	margin:0;
+	list-style-type: none;
+	text-align: center;
+
+}
+header li{
+	float: left;
+	display: block;
+	padding: 5px 10px 29px 10px;
+	list-style-type: none;
+
+}
+header nav{
+	float: right;
+	box-sizing: border-box;
+}
+/* When hovering over nav bar tabs */
+nav li:hover {
+	background-color: #85C1E9;
+    color: white;
+}
+
+.active-nav {
+    background-color: #85C1E9;
+    color: white;
+}
+
+
+/* Social Media CSS */
+.social-media .fa {
+    padding: 15px;
+    font-size: 20px;
+    width: 60px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    float: left;
+}
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+    margin: 10px 10px 0 10px;
+}
+/* Twitter */
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+    margin: 10px 10px 0 10px;
+}
+/* YouTube */
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+    margin: 10px 10px 0 10px;
+}
+/* Slack */
+.fa-slack {
+    background: white;
+    color: black;
+    margin: 10px 10px 0 10px;
+}
+.social-media {
+	padding-bottom: 10px;
+	display: inline-block;
+}
+/* Hover effect */
+.fa:hover {
+    opacity: 0.5;
+}
+
+
+/* Bootstrap Carousel */
+.carousel-item {
+height: 1000px;
+overflow: hidden;
+width: 100%;
+}
+.carousel-item img {
+width: 95%;
+}
+
+.carouselExampleFade {
+	margin-bottom: 10px;
+}
+
+
+
+#showcase img {
+        height: 945px;
+        width: 1000px;
+        object-fit: contain;
+}
+
+
+
+/* JavaScript Back to Top Button */
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #404040; /* Set a background color */
+    color: #ccc; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+    transition: all .3s;
+    opacity: .75;
+}
+
+#myBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.row {
+    width: 100%;
+    margin-left: 0;
+    margin-right:0;
+
+}
+
+#contact-us {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.contact-us-submit {
+    background-color: lightblue;
+    color: white;
+    border-radius: 12px;
+    font-size: 20px;
+    padding: 12px 40%;
+    transition-duration: 0.4s;
+}
+.contact-us-submit:hover {
+    background-color: #85C1E9;
+}
+
+.contact-title {
+    
+}

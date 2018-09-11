@@ -1,0 +1,68 @@
+.learn-more {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: lightblue;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 8px 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+}
+
+.learn-more span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.learn-more span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+  font: bold;
+}
+
+.learn-more:hover span {
+  padding-right: 25px;
+}
+
+.learn-more:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
+
+
+
+.debate-about-media {
+  display: inline-block;
+}
+
+.about-us-p {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+
+.speech-events-header {
+  margin: 0 auto;
+  width: 500px;
+  text-align: center;
+}
+
+.about-us {
+  margin: 0 auto;
+  width: 400px;
+  text-align: center;
+}
