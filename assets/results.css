@@ -4,18 +4,18 @@
 }
 
 body {
-    font: 14px/18px Tahoma, Arial, sans-serif;
+    font: 7px/9px Tahoma, Arial, sans-serif;
     background: #f0f7f9;
 }
 
 .container {
-    width: 70vw;
-    margin: 30px auto;
+    width: 35vw;
+    margin: 15px auto;
 }
 
 h1 {
-    padding-bottom: 20px;
-    margin-bottom: 40px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
     border-bottom: 1px #40361E solid;
     line-height: 1;
     font-weight: normal;
@@ -28,13 +28,13 @@ table {
 }
 table th,
 table td {
-    padding: 20px 20px;
+    padding: 10px 10px;
     text-align: left;
   border-left: ;
 }
 
 table th {
-    padding: 25px 20px;
+    padding: 12px 10px;
     background-color: #77d5d4;
     position: relative;
     cursor: pointer;
