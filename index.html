@@ -12,6 +12,10 @@
 		<script type="text/javascript" src="./js/upcomingTournaments.js"></script>
 		<!-- Back to Top Button JS -->
 		<script type="text/javascript" src="./js/backToTop.js"></script>
+
+		<!-- NavBar JS -->
+		<script type="text/javascript" src="./js/index.js"></script>
+
 		<!-- Google Font -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<!-- Bootstrap CSS -->
@@ -36,27 +40,26 @@
 		<!-- Back to Top Button -->
 		<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 		
+
 		<header>
-			<div class="container-fluid" id=navbar>
-				<div class="social-media">
-					<!-- Add icon library -->
-					<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-					<a href="#" class="fa fa-facebook"></a>
-					<a href="https://twitter.com/CN_Forensics" class="fa fa-twitter"></a>
-					<a href="https://www.youtube.com/channel/UC7-3oQsBFklXv_1fotwfL6Q" class="fa fa-youtube"></a>
-					<a href="https://CNForensics.com/Slack" class="fa fa-slack"></a>
+			<div class="topnav" id="myTopnav">
+			  <a href="./index" class="active">Home</a>
+			  <a href="./about">About</a>
+			  <a href="./tournaments">Tournaments</a>
+			  <a href="./calendar">Calendar</a>
+			  <a href="./resources">Resources</a>
+			  <a href="./donate">Donate</a>
+			  <a href="./contact">Contact Us</a>
+				<div class="social-media-nav" id="social-media-nav">
+				<!-- Social Media Buttons -->
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+				<!-- Add font awesome icons -->
+				<a href="#" class="fa fa-facebook"></a>
+				<a href="https://twitter.com/CN_Forensics" class="fa fa-twitter"></a>
+				<a href="https://www.youtube.com/channel/UC7-3oQsBFklXv_1fotwfL6Q" class="fa fa-youtube"></a>
 				</div>
-				<nav>
-					<ul>
-						<li class ="active-nav"><a href="index">Home</a></li>
-						<li><a href="about">About</a></li>
-						<li><a href="tournaments">Tournaments</a></li>
-						<li><a href="calendar">Calendar</a></li>
-						<li><a href="resources">Resources</a></li>
-						<li><a href="donate">Donate</a></li>
-						<li><a href="contact">Contact Us</a></li>
-					</ul>
-				</nav>
+			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 			</div>
 		</header>
 
@@ -74,10 +77,10 @@
 				      <img class="d-block w-100" src="./img/photo0.jpg" alt="First slide">
 				    </div>
 				    <div class="carousel-item">
-				      <img class="d-block w-100" src="./img/photo3.jpg" alt="Second slide">
+				      <img class="d-block w-100" src="./img/photo1.jpg" alt="Second slide">
 				    </div>
 				    <div class="carousel-item">
-				      <img class="d-block w-100" src="./img/photo4.jpg" alt="Third slide">
+				      <img class="d-block w-100" src="./img/photo2.jpg" alt="Third slide">
 				    </div>
 				  </div>
 				  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -91,7 +94,7 @@
 				</div>
 			</div>
 		</section>
-		
+		<br>
 		
 		<!-- Upcoming Tournaments HTML -->
 		<h1>Upcoming Tournaments:</h1>
@@ -108,69 +111,33 @@
 		    <p>This tournament is for students who have never competed in a speech tournament before. There will be four different speech rounds.</p>
 		    <button class="learn-more" data-toggle="collapse" data-target="#one"><span><strong>More Info </strong></span></button>
 				<div id="one" class="collapse">
-						<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpff4ZrtRVA2SAYocR5K54HbZ_5yRv3RRT6VYbh--palKu6w/viewform?embedded=true" width="640" height="1786" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-						<div class="container">
-						  <h1>Results</h1>
-							<table>
-							  <thead>
-							    <tr>
-							      <th>Name</th>
-							      <th>Event</th>
-							      <th>Round 1</th>
-							      <th>Round 2</th>
-							      <th>Round 3</th>
-							      <th>Round 4</th>
-							      <th>Overall</th>
-							    </tr>
-							  </thead>
-							  <tbody>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							  </tbody>
-							</table>
+					<div class="resp-container">
+						<iframe class="resp-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfpff4ZrtRVA2SAYocR5K54HbZ_5yRv3RRT6VYbh--palKu6w/viewform?embedded=true" width="640" height="450" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+					</div>
+						<div class="table-responsive"> <br>
+						  <table class="table">
+						    <h1>Results</h1>
+						    <tr>
+						      <th>Name</th>
+						      <th>Event</th>
+						      <th>Ranking</th>
+						    </tr>
+						    <tr>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+						    </tr>
+						    <tr>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+						    </tr>
+						    <tr>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+						    </tr>
+						  </table>
 						</div>
 				</div>
 		  </div>
@@ -181,75 +148,36 @@
 		    <p>This tournament is for students who have never competed in a debate tournament before. Each student will debate four different teams.</p>
 		    <button class="learn-more" data-toggle="collapse" data-target="#two"><span><strong>More Info </strong></span></button>
 				<div id="two" class="collapse">
-					<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpff4ZrtRVA2SAYocR5K54HbZ_5yRv3RRT6VYbh--palKu6w/viewform?embedded=true" width="640" height="1786" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-					
-					<div class="container">
-						  <h1>Results</h1>
-							<table>
-							  <thead>
-							    <tr>
-							      <th>Name</th>
-							      <th>Event</th>
-							      <th>Round 1</th>
-							      <th>Round 2</th>
-							      <th>Round 3</th>
-							      <th>Round 4</th>
-							      <th>Overall</th>
-							    </tr>
-							  </thead>
-							  <tbody>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							  </tbody>
-							</table>
+					<div class="resp-container">
+						<iframe class="resp-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfpff4ZrtRVA2SAYocR5K54HbZ_5yRv3RRT6VYbh--palKu6w/viewform?embedded=true" width="640" height="450" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+					</div>
+						<div class="table-responsive"> <br>
+						  <table class="table">
+						    <h1>Results</h1>
+						    <tr>
+						      <th>Name</th>
+						      <th>Event</th>
+						      <th>Ranking</th>
+						    </tr>
+						    <tr>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+						    </tr>
+						    <tr>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+						    </tr>
+						    <tr>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+						    </tr>
+						  </table>
 						</div>
 				</div>
-				</div>
 		  </div>
-		</div>
 
 		<div class="row">
 		  <div class="column" style="background-color:#ccc;">
@@ -258,72 +186,35 @@
 		    <h6><a href="https://www.google.com/maps/place/Clovis+High+School/@36.8173569,-119.683453,17z/data=!3m1!4b1!4m5!3m4!1s0x80945b90809d255b:0x84be873b7db4a407!8m2!3d36.8173569!4d-119.6812643"target="_blank">Clovis HS</a></h6>
 		    <p>This is the first of the three I.E. speech tournaments. I.E tournaments serve as a way for students to compete and test out their new speeches at a real tournament.</p>
 		    <button class="learn-more" data-toggle="collapse" data-target="#three"><span><strong>More Info </strong></span></button>
-				<div id="three" class="collapse">
-					<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpff4ZrtRVA2SAYocR5K54HbZ_5yRv3RRT6VYbh--palKu6w/viewform?embedded=true" width="640" height="1786" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-					<div class="container">
-						  <h1>Results</h1>
-							<table>
-							  <thead>
-							    <tr>
-							      <th>Name</th>
-							      <th>Event</th>
-							      <th>Round 1</th>
-							      <th>Round 2</th>
-							      <th>Round 3</th>
-							      <th>Round 4</th>
-							      <th>Overall</th>
-							    </tr>
-							  </thead>
-							  <tbody>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							  </tbody>
-							</table>
+				<div id="one" class="collapse">
+					<div class="resp-container">
+						<iframe class="resp-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfpff4ZrtRVA2SAYocR5K54HbZ_5yRv3RRT6VYbh--palKu6w/viewform?embedded=true" width="640" height="450" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+					</div>
+						<div class="table-responsive"> <br>
+						  <table class="table">
+						    <h1>Results</h1>
+						    <tr>
+						      <th>Name</th>
+						      <th>Event</th>
+						      <th>Ranking</th>
+						    </tr>
+						    <tr>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+						    </tr>
+						    <tr>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+						    </tr>
+						    <tr>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+						    </tr>
+						  </table>
 						</div>
-				
 				</div>
 		  </div>
 		  <div class="column" style="background-color:#ddd;">
@@ -332,75 +223,37 @@
 		    <h6><a href="https://www.google.com/maps/place/Edison+High+School/@36.7198646,-119.8080277,17z/data=!3m1!4b1!4m5!3m4!1s0x8094608e06913eed:0x272ae2e338636cbc!8m2!3d36.7198646!4d-119.805839"target="_blank">Edison HS</a></h6>
 		    <p>This is the first of the three Wahzoo debate tournaments. Students' debate records from Wahzoo 1, 2, and 3 are all connected, as if it was one large Wahzoo tournament spread out into three separate tournaments. Each Wahzoo tournament has four rounds, meaning that a student's debate record will be out of 12 rounds by the end of Wahzoo 3. The I.E speech tournaments are unlike the three Wahzoo debate tournaments in that each I.E is a separate tournament.</p>
 		    <button class="learn-more" data-toggle="collapse" data-target="#four"><span><strong>More Info </strong></span></button>
-				<div id="four" class="collapse">
-					<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpff4ZrtRVA2SAYocR5K54HbZ_5yRv3RRT6VYbh--palKu6w/viewform?embedded=true" width="640" height="1786" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-					<div class="container">
-						  <h1>Results</h1>
-							<table>
-							  <thead>
-							    <tr>
-							      <th>Name</th>
-							      <th>Event</th>
-							      <th>Round 1</th>
-							      <th>Round 2</th>
-							      <th>Round 3</th>
-							      <th>Round 4</th>
-							      <th>Overall</th>
-							    </tr>
-							  </thead>
-							  <tbody>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							      <td></td>
-							    </tr>
-							  </tbody>
-							</table>
+				<div id="one" class="collapse">
+					<div class="resp-container">
+						<iframe class="resp-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfpff4ZrtRVA2SAYocR5K54HbZ_5yRv3RRT6VYbh--palKu6w/viewform?embedded=true" width="640" height="450" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+					</div>
+						<div class="table-responsive"> <br>
+						  <table class="table">
+						    <h1>Results</h1>
+						    <tr>
+						      <th>Name</th>
+						      <th>Event</th>
+						      <th>Ranking</th>
+						    </tr>
+						    <tr>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+						    </tr>
+						    <tr>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+						    </tr>
+						    <tr>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+						    </tr>
+						  </table>
 						</div>
 				</div>
-				
 		  </div>
-		</div>
 		
 
 
