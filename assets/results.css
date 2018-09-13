@@ -1,16 +1,14 @@
-* {
-    padding: 0;
-    margin: 0;
-}
-
-body {
-    font: 7px/9px Tahoma, Arial, sans-serif;
+.table {
+    font: 14px/18px Tahoma, Arial, sans-serif;
     background: #f0f7f9;
 }
 
 .container {
     width: 35vw;
     margin: 15px auto;
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
 }
 
 h1 {
