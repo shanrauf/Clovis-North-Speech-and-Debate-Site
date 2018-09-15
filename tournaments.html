@@ -18,6 +18,63 @@
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+<!-- Google Analytics Global Sites Tag -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125806901-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-125806901-1');
+
+		</script>
+
+		<!-- Google Analytics -->
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-XXXXX-Y', 'auto');
+		ga('send', {'hitType': 'event', 'eventCategory': 'categoryPdf', 'eventAction': 'clickAction', 'eventLabel': 'myLabel' });
+		ga('send', 'pageview');
+
+		// Gets a reference to the form element, assuming
+		// it contains the id attribute "signup-form".
+		var form = document.getElementById('signup-form');
+
+		// Adds a listener for the "submit" event.
+		form.addEventListener('submit', function(event) {
+
+		  // Prevents the browser from submitting the form
+		  // and thus unloading the current page.
+		  event.preventDefault();
+
+		  // Creates a timeout to call `submitForm` after one second.
+		  setTimeout(submitForm, 1000);
+
+		  // Keeps track of whether or not the form has been submitted.
+		  // This prevents the form from being submitted twice in cases
+		  // where `hitCallback` fires normally.
+		  var formSubmitted = false;
+
+		  function submitForm() {
+		    if (!formSubmitted) {
+		      formSubmitted = true;
+		      form.submit();
+		    }
+		  }
+
+		  // Sends the event to Google Analytics and
+		  // resubmits the form once the hit is done.
+		  ga('send', 'event', 'Signup Form', 'submit', {
+		    hitCallback: submitForm
+		  });
+		});
+		</script>
+		<!-- End Google Analytics -->
+
 		<!-- My CSS -->
 		<link rel="stylesheet" href="./assets/style.css">
 		<link rel="icon" type="image/x-icon" href="favicon.ico"/>
@@ -49,6 +106,7 @@
 			  <a href="./tournaments" class="active">Tournaments</a>
 			  <a href="./calendar">Calendar</a>
 			  <a href="./resources">Resources</a>
+			  <a href="./sponsors">Our Sponsors</a>
 			  <a href="./donate">Donate</a>
 			  <a href="./contact">Contact Us</a>
 				<div class="social-media-nav" id="social-media-nav">
@@ -191,7 +249,7 @@
 		    <h2>4. Wahzoo #1 (Debate)</h2>
 		    <h6>Oct. 13th, 2018<h6>
 		    <h6><a href="https://www.google.com/maps/place/Edison+High+School/@36.7198646,-119.8080277,17z/data=!3m1!4b1!4m5!3m4!1s0x8094608e06913eed:0x272ae2e338636cbc!8m2!3d36.7198646!4d-119.805839"target="_blank">Edison HS</a></h6>
-		    <p>This is the first of the three Wahzoo debate tournaments. Students' debate records from Wahzoo 1, 2, and 3 are all connected, as if it was one large Wahzoo tournament spread out into three separate tournaments. Each Wahzoo tournament has four rounds, meaning that a student's debate record will be out of 12 rounds by the end of Wahzoo 3. The I.E speech tournaments are unlike the three Wahzoo debate tournaments in that each I.E is a separate tournament.</p>
+		    <p>This is the first of the three Wahzoo debate tournaments (the name "Wahzoo" has no significance). Students' debate records from Wahzoo 1, 2, and 3 are all connected, as if it was one large Wahzoo tournament spread out into three separate tournaments. Each Wahzoo tournament has four rounds, meaning that a student's debate record will be out of 12 rounds by the end of Wahzoo 3. Students' records in the Wahzoo tournaments will determine their ranking at State Quals Debate. The I.E speech tournaments are not like the Wahzoo system; think of I.E tournaments as just practice for State Quals A/B Speech.</p>
 		    <button class="learn-more" data-toggle="collapse" data-target="#four"><span><strong>More Info </strong></span></button>
 				<div id="four" class="collapse">
 					<div class="resp-container">
@@ -859,6 +917,8 @@
 					<a href="calendar">Calendar</a>
 					·
 					<a href="resources">Resources</a>
+					·
+					<a href="sponsors">Our Sponsors</a>
 					·
 					<a href="donate">Donate</a>
 					.

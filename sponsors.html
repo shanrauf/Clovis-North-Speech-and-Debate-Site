@@ -1,5 +1,4 @@
 <DOCTYPE! html>
-
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -7,10 +6,16 @@
 		<meta name="description" content="Clovis North Forensics Speech and Debate Team Website">
 		<meta name="keywords" contents="Clovis North, CN, Forensics, Speech and Debate, Clovis North Forensics, CN Speech and Debate">
 		<meta name="author" content="Shan Rauf">
-		<title>CN Forensics | Contact</title>
+		<title>CN Forensics | Home</title>
 		<link rel="shortcut icon" href="./img/favicon.ico" />
+		<!-- Upcoming Tournaments JS -->
+		<script type="text/javascript" src="./js/upcomingTournaments.js"></script>
 		<!-- Back to Top Button JS -->
 		<script type="text/javascript" src="./js/backToTop.js"></script>
+
+		<!-- NavBar JS -->
+		<script type="text/javascript" src="./js/nav.js"></script>
+
 		<!-- Google Font -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<!-- Bootstrap CSS -->
@@ -76,11 +81,9 @@
 		<!-- My CSS -->
 		<link rel="stylesheet" href="./assets/style.css">
 		<link rel="icon" type="image/x-icon" href="favicon.ico"/>
-		<link rel="stylesheet" href="./assets/form.css">
-		<title>Clovis North Forensics</title>
-
-		<!-- Nav Bar -->
-		<script type="text/javascript" src="./js/nav.js"></script>
+		<link rel="stylesheet" href="./assets/results.css">
+		<link rel="stylesheet" href="./assets/about.css">
+		<link rel="stylesheet" href="./assets/sponsors.css">
 
 		<!-- Footer CSS and Fonts-->
 		<link rel="stylesheet" href="assets/footer-distributed-with-address-and-phones.css">
@@ -103,9 +106,9 @@
 			  <a href="./tournaments">Tournaments</a>
 			  <a href="./calendar">Calendar</a>
 			  <a href="./resources">Resources</a>
-			  <a href="./sponsors">Our Sponsors</a>
+			  <a href="./sponsors" class="active">Our Sponsors</a>
 			  <a href="./donate">Donate</a>
-			  <a href="./contact" class="active">Contact Us</a>
+			  <a href="./contact">Contact Us</a>
 				<div class="social-media-nav" id="social-media-nav">
 				<!-- Social Media Buttons -->
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -118,56 +121,63 @@
 			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 			</div>
 		</header>
-
+		<div class='container-fluid' id='sponsors'>
+			<h1><strong>Sponsor Clovis North Forensics</strong></h1>
+			<p>The 2018-19 Clovis North Forensics team is working hard to win its third Valley Championship in a row.  To help create team unity and stir excitement at school, we’re making a team T-shirt and we’re looking for sponsors! If your company would like its name/logo on the back of our team shirt, please consider sponsorship. If interested, please fill out the following sponsorship form and email a digital copy of your company name/logo.  Thank you for helping support Clovis North Forensics!</p>
+			<h2><strong>FOR $250, A SPONSOR WILL RECEIVE</strong></h2>
+			<ul>
+				<li>Name or Company Logo on the back of our Team Shirts</li>
+				<li>Acknowledgement of the sponsorship sent out on Peach Jar to the Clovis North Community</li>
+				<li>A mention on our team website clovisnorthforensics.org</li><br>
+			</ul>
+			<p>For more information, please contact chadhayden@cusd.com</p>
+			<p><strong>Please send the company logo or artwork that you would like on the T-shirt and website to the above email address.</strong></p>
+			<p>Please make checks payable to <strong>BRONCO FOUNDATION</strong></p>
+			<ul style="text-decoration: none;">
+				<li>Non-Profit 501(C) (3) -- TAX – ID # 71-1036638 </li>
+				<li>All proceeds benefit the members of the Clovis North Forensics Team</li>
+			</ul>
+		</div>
 		<!-- Contact Us Form -->
-		<section id="contact-us">
+		<section>
 			<div class="container-fluid" id="contact-us">
-	            <div class="row">
+	            
 	                <div class="col-md-6 col-md-offset-3">
 	                    <div class="contact-title">
-	                    <h2>Contact Us</h2> 
-	                    <p> Send us your message and we will get back to you as soon as possible </p>
+	                    <h2>Sponsorship Form</h2> 
+	                    <p> Fill out the form below and we will get back to you as soon as possible </p>
 	                    </div>
-	                        <div class="row">
-	                        <form name="contact" method="POST" netlify>
-	                            <div class="col-sm-6 form-group">
-	                                <label for="name"> First Name:</label>
-	                                <input type="text" class="form-control" id="firstname" name="firstname" maxlength="50">
-	                            </div>
-	                            <div class="col-sm-6 form-group">
-	                                <label for="name"> Last Name:</label>
-	                                <input type="text" class="form-control" id="lastname" name="lastname" maxlength="50">
-	                            </div>
-	                        </div>
-	                        <div class="row">
-	                            <div class="col-sm-6 form-group">
-	                                <label for="email"> Email:</label>
-	                                <input type="text" class="form-control" id="email" name="email" maxlength="50">
-	                            </div>
-	                            <div class="col-sm-6 form-group">
-	                                <label for="email"> Phone:</label>
-	                                <input type="tel" class="form-control" id="phone" name="phone" required maxlength="50">
-	                            </div>
-	                        </div>
-	                        <div class="row">
-	                            <div class="col-sm-12 form-group">
-	                                <label for="name"> Message:</label>
-	                                <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Your Message Here" maxlength="6000" rows="7"></textarea>
-	                            </div>
-	                        </div>
-	                        <div class="row">
-	                            <div class="col-sm-12 form-group">
-	                                <button type="submit" class="contact-us-submit"><strong>Submit</strong> </button>
-	                            </div>
-	                        </div>
+	                        
+	                        <form name="sponsorship" method="POST" netlify>
+		                        
+		                            <div class="col-sm-6 form-group">
+		                                <label for="companyName"> Company Name:</label>
+		                                <input type="text" class="form-control" id="email" name="Company Name" maxlength="50">
+		                            </div>
+		                            <div class="col-sm-6 form-group">
+		                                <label for="email"> E-mail:</label>
+		                                <input type="tel" class="form-control" id="phone" name="email" required maxlength="50">
+		                            </div>
+		                        
+		                        <div class="row">
+		                            <div class="col-sm-12 form-group">
+		                                <label for="name"> Message:</label>
+		                                <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Your Message Here" maxlength="6000" rows="7"></textarea>
+		                            </div>
+		                        </div>
+		                        <div class="row">
+		                            <div class="col-sm-12 form-group">
+		                                <button type="submit" class="contact-us-submit"><strong>Submit</strong> </button>
+		                            </div>
+		                        </div>
 	                    	</form>
 	                    <div id="success_message" style="width:100%; height:100%; display:none; "> <h3>Sent your message successfully!</h3> </div>
 	                    <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. </div>
-	                </div>
+	                
 	            </div>
-        	</div>
+        	
+        </div>
 		</section>
-
 		<footer class="footer-distributed">
 			<div class="footer-left">
 				<h3>Clovis North <span>Forensics</span></h3>
@@ -230,3 +240,5 @@
 			</div>
 
 		</footer>
+	</body>
+</html>
