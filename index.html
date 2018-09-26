@@ -24,6 +24,9 @@
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+    	<!-- Custom styles for this template -->
+    	<link href="./assets/4-col-portfolio.css" rel="stylesheet">
+
 		<!-- Google Analytics Global Sites Tag -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125806901-1"></script>
 		<script>
@@ -101,43 +104,46 @@
 		<!-- Back to Top Button -->
 		<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
-		<div class="navigation-bar">
-			<nav class="navbar navbar-expand-lg ">
-			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			    <ul class="navbar-nav mr-auto">
-			      <li class="nav-item active">
-			        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link" href="./about">About Us</a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link" href="./tournaments">Tournaments</a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link" href="./calendar">Calendar</a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link" href="./resources">Resources</a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link disabled" href="#">Our Sponsors</a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link disabled" href="#">Donate</a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link" href="./contact">Contact Us</a>
-			      </li>
+		<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+		  <a class="navbar-brand" href="#">CN Forensics</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
 
-			    </ul>
-			    <form class="form-inline my-2 my-lg-0">
-			      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			    </form>
-			  </div>
-			</nav>
-		</div>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="./about">About Us</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="./tournaments">Tournaments</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="./calendar">Calendar</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="./resources">Resources</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link disabled" href="#">Our Sponsors</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link disabled" href="#">Donate</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="./contact">Contact Us</a>
+		      </li>
+
+		    </ul>
+		    <form class="form-inline my-2 my-lg-0">
+		      <input class="form-control mr-sm-2" type="search" placeholder="Enter information.." aria-label="Search">
+		      <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+		    </form>
+		  </div>
+		</nav>
 
 		<!-- CN Photo Slideshow + Logo -->
 		<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
@@ -164,492 +170,101 @@
 		<br>
 		
 		<!-- Upcoming Tournaments HTML -->
-		<h1>Upcoming Tournaments:</h1>
-		<p>(NOTE: Switch to List View if on mobile to optimally view upcoming tournaments)</p>
-		<!-- Buttons to choose list or grid view -->
-		<button onclick="listView()"><i class="fa fa-bars"></i> List</button> 
-		<button onclick="gridView()"><i class="fa fa-th-large"></i> Grid</button> 
-		
-		
-		<div class="row">
-		  <div class="column" style="background-color:#ccc;">
-		    <h2>1. Novice IE</h2>
-		    <h6>Sept. 15th, 2018<h6>
-		    <h6><a href="https://www.google.com/maps/place/Lemoore+High+School/@36.2975958,-119.7821582,17z/data=!3m1!4b1!4m5!3m4!1s0x8094c0a4f994aa33:0x3901055ee0868c21!8m2!3d36.2975958!4d-119.7799695"target="_blank">Lemoore HS</a></h6>
-		    <p>This tournament is for students who have never competed in a speech tournament before. There will be four different speech rounds.</p>
-		    <button class="learn-more" data-toggle="collapse" data-target="#one"><span><strong>More Info </strong></span></button>
-				<div id="one" class="collapse">
-					<div class="table-responsive"> <br>
-					  <table class="table">
-					    <h1>Results</h1>
-					      <th>Name</th>
-					      <th>Round 1</th>
-					      <th>Round 2</th>
-					      <th>Round 3</th>
-					      <th>Ranking</th>
-					    </tr>
-					    
+      <h1 class="my-4">Upcoming Tournaments
+        <small>2018-2019</small>
+      </h1>
 
-						<tr>
-					      <th class="event" colspan="5">Oratorical Interpretation</th>
-					    </tr>
-
-					    <tr>
-					      <td>Eunice Choi</td>
-					      <td>4th</td>
-					      <td>4th</td>
-					      <td>2nd</td>
-					      <td></td>
-					    </tr>
-					    <tr>
-					      <td>Shivani Pamula</td>
-					      <td>2nd</td>
-					      <td>1st</td>
-					      <td>7th</td>
-					      <td></td>
-					    </tr>
-					    <tr>
-					      <td>Zorawar Singh</td>
-					      <td>5th</td>
-					      <td>5th</td>
-					      <td>5th</td>
-					      <td></td>
-					    </tr>
-					    <tr>
-					      <td>Kyleen Lin</td>
-					      <td>1st</td>
-					      <td>1st</td>
-					      <td>3rd</td>
-					      <td>3rd</td>
-					    </tr>
-					    <tr>
-					      <td>Ananya Vinay</td>
-					      <td>1st</td>
-					      <td>2nd</td>
-					      <td>2nd</td>
-					      <td>2nd</td>
-					    </tr>
-
-						<tr>
-					      <th class="event" colspan="5">Original Oratory</th>
-					    </tr>
-
-					    <tr>
-					      <td>Andrew Lee</td>
-					      <td>1st</td>
-					      <td>1st</td>
-					      <td>1st</td>
-					      <td>1st</td>
-					    </tr>
-					    <tr>
-					      <td>Hayden Lusk</td>
-					      <td>2nd</td>
-					      <td>4th</td>
-					      <td>4th</td>
-					      <td>5th</td>
-					    </tr>
-
-					    <tr>
-					      <td>Winny Saini</td>
-					      <td>1st</td>
-					      <td>5th</td>
-					      <td>7th</td>
-					      <td>7th</td>
-					    </tr>
-					    <tr>
-					      <td>Ashu Yudav</td>
-					      <td>4th</td>
-					      <td>4th</td>
-					      <td>2nd</td>
-					      <td></td>
-					    </tr>
-
-					    <tr>
-					      <td>Armaan Salahuddin</td>
-					      <td>1st</td>
-					      <td>1st</td>
-					      <td>2nd</td>
-					      <td>2nd</td>
-					    </tr>
-					    <tr>
-					      <td>Rozhin Lodge</td>
-					      <td>5th</td>
-					      <td>5th</td>
-					      <td>7th</td>
-					      <td></td>
-					    </tr>
-
-					    <tr>
-					      <td>Ariba Suhail</td>
-					      <td>3rd</td>
-					      <td>2nd</td>
-					      <td>3rd</td>
-					      <td>3rd</td>
-					    </tr>
-
-						<tr>
-					      <th class="event" colspan="5">Expository</th>
-					    </tr>
-
-					    <tr>
-					      <td>Stewart Randall</td>
-					      <td>5th</td>
-					      <td>2nd</td>
-					      <td>3rd</td>
-					      <td></td>
-					    </tr>
-					    <tr>
-					      <td>Steven Le</td>
-					      <td>2nd</td>
-					      <td>1st</td>
-					      <td>2nd</td>
-					      <td>2nd</td>
-					    </tr>
-
-					    <tr>
-					      <td>Isaac Wang</td>
-					      <td>1st</td>
-					      <td>1st</td>
-					      <td>1st</td>
-					      <td>1st</td>
-					    </tr>
-
-					    <tr>
-					      <th class="event" colspan="5">Original Prose & Poetry</th>
-					    </tr>
-
-					    <tr>
-					      <td>Sam Hickey</td>
-					      <td>1st</td>
-					      <td>2nd</td>
-					      <td>3rd</td>
-					      <td>2nd</td>
-					    </tr>
-
-					     <tr>
-					      <td>Payton Polanco</td>
-					      <td>2nd</td>
-					      <td>1st</td>
-					      <td>1st</td>
-					      <td>1st</td>
-					    </tr>
-
-					     <tr>
-					      <td>Ananya Vinay</td>
-					      <td>2nd</td>
-					      <td>3rd</td>
-					      <td>5th</td>
-					      <td>3rd</td>
-					    </tr>
-
-						<tr>
-					      <th class="event" colspan="5">Humorous Interpretation</th>
-					    </tr>
-
-					    <tr>
-					    <tr>
-					      <td>Liv Sandhu</td>
-					      <td>4th</td>
-					      <td>5th</td>
-					      <td>2th</td>
-					      <td>3rd</td>
-					    </tr>
-					    <tr>
-					      <td>Mahmoud Hegab</td>
-					      <td>4th</td>
-					      <td>4th</td>
-					      <td>1st</td>
-					      <td></td>
-					    </tr>
-
-					    <tr>
-					      <th class="event" colspan="5">Impromptu</th>
-					    </tr>
-
-					    <tr>
-					      <td>Ananya Vinay</td>
-					      <td>2nd</td>
-					      <td>3rd</td>
-					      <td>5th</td>
-					      <td>3rd</td>
-					    </tr>
-
-					    <tr>
-					      <th class="event" colspan="5">Duo Interpretation</th>
-					    </tr>
-
-					    <tr>
-					      <td>Keira Crossen / Ishana</td>
-					      <td>6th</td>
-					      <td>6th</td>
-					      <td>6th</td>
-					      <td></td>
-					    </tr>
-					    
-					    <tr>
-					      <th class="event" colspan="5">Original Advocacy</th>
-					    </tr>
-
-					    <tr>
-					      <td>Giovani Marengo-Minasyan</td>
-					      <td>1st</td>
-					      <td>2nd</td>
-					      <td>2nd</td>
-					      <td>2nd</td>
-					    </tr>
-					    
-					    
-
-					  </table>
-					</div>
-				</div>
-		  </div>
-		  <div class="column" style="background-color:#ddd;">
-		    <h2>2. Novice Debate</h2>
-		    <h6>Sept. 22nd, 2018<h6>
-		    <h6><a href="https://www.google.com/maps/place/Orosi+High+School/@36.5487977,-119.2904285,17z/data=!3m1!4b1!4m5!3m4!1s0x8095190fb16f880b:0x71ac5c5f3c6337cf!8m2!3d36.5487977!4d-119.2882398"target="_blank">Orosi HS</a></h6>
-		    <p>This tournament is for students who have never competed in a debate tournament before. Each student will debate four different teams.</p>
-		    <button class="learn-more" data-toggle="collapse" data-target="#four"><span><strong>More Info </strong></span></button>
-				<div id="four" class="collapse">
-					<h4><a href="https://www.signupgenius.com/go/60b0c4eafae28a4f85-food"><strong>Click to sign up for food/drinks</strong></a></h4>
-					<h4><a href="https://docs.google.com/forms/d/1RkjFI93lrHAXZUhPnyn1NDfdY9wy5fSTLDjoe-6bjyU"><strong>Sign up for judging</strong></a></h4>
-						<div class="table-responsive"> <br>
-						  <table class="table">
-<h1>Results</h1>
-						    <tr>
-						      <th>Name</th>
-						      <th>Round 1</th>
-						      <th>Round 2</th>
-						      <th>Round 3</th>
-						      <th>Round 4</th>
-	
-						    </tr>
-						    <tr>
-						    	<th class="event" colspan="5">Policy Debate</th>
-						    </tr>
-						    <tr>
-						      <td>Le & Randall</td>
-						      <td>Win</td>
-						      <td>Loss</td>
-						      <td>Win</td>
-						      <td>Win</td>
-						    
-						    </tr>
-						    <tr>
-						      <td>Saini & Pamula</td>
-						      <td>Win</td>
-						      <td>Win</td>
-						      <td>Loss</td>
-						      <td>Win</td>
-						      
-						    </tr>
-						    <tr>
-						      <td><strong>Saluhuddin & Lusk</strong></td>
-						      <td>Win</td>
-						      <td>Win</td>
-						      <td>Win</td>
-						      <td>Win</td>
-						    
-						    </tr>
-						    <tr>
-						      <td>Crossen & Goswami</td>
-						      <td>Loss</td>
-						      <td>Loss</td>
-						      <td>LossL</td>
-						      <td>BYE</td>
-						   
-						    </tr>
-						    <tr>
-						      <td>Hegab & Yadav</td>
-						      <td>BYE</td>
-						      <td>Loss</td>
-						      <td>Win</td>
-						      <td>Loss</td>
-						     
-						    </tr>
-						    
-						    <tr>
-						    	<th class="event" colspan="5">Lincoln-Douglas Debate</th>
-						    </tr>
-
-						    <tr>
-						      <td>Eunice Choi</td>
-						      <td>Win</td>
-						      <td>Win</td>
-						      <td>Loss</td>
-						      <td>WinW</td>
-						      
-						    </tr>
-						    <tr>
-						      <td>Zorawar Singh</td>
-						      <td>Loss</td>
-						      <td>Loss</td>
-						      <td>Loss/</td>
-						      <td>Loss</td>
-						     
-						    </tr>
-						     <tr>
-						      <td><strong>Sehej Chugh<strong></td>
-						      <td>Win</td>
-						      <td>Win</td>
-						      <td>Win</td>
-						      <td>BYE</td>
-						     
-						    </tr>
-						    <tr>
-						      <td>Fiona Yao</td>
-						      <td>Win</td>
-						      <td>Win</td>
-						      <td>Loss</td>
-						      <td>Win</td>
-						     
-						    </tr>
-						     <tr>
-						      <td>Farzaan Sipra</td>
-						      <td>Win</td>
-						      <td>Win</td>
-						      <td>Win</td>
-						      <td>Loss</td>
-						      
-						    </tr>
-						    <tr>
-						      <td><strong>Liv Sandhu</strong></td>
-						      <td>Win</td>
-						      <td>Win</td>
-						      <td>Win</td>
-						      <td>Win</td>
-						   
-						    </tr>
-						    
-						    <tr>
-						    	<th class="event" colspan="5">Public Forum Debate</th>
-						    </tr>
-
-						    <tr>
-						      <td>Marengo-Minasyan & Hickey</td>
-						      <td>W/W/W/L/L</td>
-						      <td>L/L/L/L/L</td>
-						      <td>W/W/W</td>
-						      <td>W/W/W</td>
-						      
-						    </tr>
-						    <tr>
-						      <td>Lodge & Suhail</td>
-						      <td>L/L/L</td>
-						      <td>L/L/W/W/W</td>
-						      <td>W/W/W</td>
-						      <td>W/W/L</td>
-						      
-						    </tr>
-						    <tr>
-						      <td><strong>Vallabh & Lin</strong></td>
-						      <td>W/W/W/W/W</td>
-						      <td>W/W/W/W</td>
-						      <td>W/W/W</td>
-						      <td>W/W/W</td>
-						    
-						    </tr>
-						    <tr>
-						      <td><strong>Wang & Lee</strong></td>
-						      <td>W/W</td>
-						      <td>W/W/W/W/W</td>
-						      <td>W/W/W</td>
-						      <td>Bye</td>
-						     
-						    </tr>
-						    <tr>
-						      <td>Vinay & Lin</td>
-						      <td>W/W/W/W/L</td>
-						      <td>W/W/W/W/W</td>
-						      <td>W/L/L</td>
-						      <td>W/W/W</td>
-						      
-						    </tr>
-						  </table>
-						</div>
-				</div>
-		  </div>
-
-		<div class="row">
-		  <div class="column" style="background-color:#ccc;">
-		    <h2>3. I.E. A/B #1</h2>
-		    <h6>Oct. 6th, 2018<h6>
-		    <h6><a href="https://www.google.com/maps/place/Clovis+High+School/@36.8173569,-119.683453,17z/data=!3m1!4b1!4m5!3m4!1s0x80945b90809d255b:0x84be873b7db4a407!8m2!3d36.8173569!4d-119.6812643"target="_blank">Clovis HS</a></h6>
-		    <p>This is the first of the three I.E. speech tournaments. I.E tournaments serve as a way for students to compete and test out their new speeches at a real tournament.</p>
-		    <button class="learn-more" data-toggle="collapse" data-target="#three"><span><strong>More Info </strong></span></button>
-				<div id="three" class="collapse">
-					<h4><a href="https://www.signupgenius.com/go/60b0c4eafae28a4f85-food"><strong>Click to sign up for food/drinks</strong></a></h4>
-					<div class="resp-container">
-					<iframe class="resp-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfpff4ZrtRVA2SAYocR5K54HbZ_5yRv3RRT6VYbh--palKu6w/viewform?embedded=true" width="1500" height="1223" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-					</div>
-						<div class="table-responsive"> <br>
-						  <table class="table">
-						    <h1>Results</h1>
-						    <tr>
-						      <th>Name</th>
-						      <th>Event</th>
-						      <th>Ranking</th>
-						    </tr>
-						    <tr>
-						      <td></td>
-						      <td></td>
-						      <td></td>
-						    </tr>
-						    <tr>
-						      <td></td>
-						      <td></td>
-						      <td></td>
-						    </tr>
-						    <tr>
-						      <td></td>
-						      <td></td>
-						      <td></td>
-						    </tr>
-						  </table>
-						</div>
-				</div>
-		  </div>
-		  <div class="column" style="background-color:#ddd;">
-		    <h2>4. Wahzoo #1 (Debate)</h2>
-		    <h6>Oct. 13th, 2018<h6>
-		    <h6><a href="https://www.google.com/maps/place/Edison+High+School/@36.7198646,-119.8080277,17z/data=!3m1!4b1!4m5!3m4!1s0x8094608e06913eed:0x272ae2e338636cbc!8m2!3d36.7198646!4d-119.805839"target="_blank">Edison HS</a></h6>
-		    <p>This is the first of the three Wahzoo debate tournaments (the name "Wahzoo" has no significance). Students' debate records from Wahzoo 1, 2, and 3 are all connected, as if it was one large Wahzoo tournament spread out into three separate tournaments. Each Wahzoo tournament has four rounds, meaning that a student's debate record will be out of 12 rounds by the end of Wahzoo 3. Students' records in the Wahzoo tournaments will determine their ranking at State Quals Debate. The I.E speech tournaments are not like the Wahzoo system; think of I.E tournaments as just practice for State Quals A/B Speech.</p>
-		    <button class="learn-more" data-toggle="collapse" data-target="#four"><span><strong>More Info </strong></span></button>
-				<div id="four" class="collapse">
-					<h4><a href="https://www.signupgenius.com/go/60b0c4eafae28a4f85-food"><strong>Click to sign up for food/drinks</strong></a></h4>
-					<div class="resp-container">
-					<iframe class="resp-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfpff4ZrtRVA2SAYocR5K54HbZ_5yRv3RRT6VYbh--palKu6w/viewform?embedded=true" width="1500" height="1223" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-					</div>
-						<div class="table-responsive"> <br>
-						  <table class="table">
-						    <h1>Results</h1>
-						    <tr>
-						      <th>Name</th>
-						      <th>Event</th>
-						      <th>Ranking</th>
-						    </tr>
-						    <tr>
-						      <td></td>
-						      <td></td>
-						      <td></td>
-						    </tr>
-						    <tr>
-						      <td></td>
-						      <td></td>
-						      <td></td>
-						    </tr>
-						    <tr>
-						      <td></td>
-						      <td></td>
-						      <td></td>
-						    </tr>
-						  </table>
-						</div>
-				</div>
-		  </div>
-		
-
-
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Project Two</a>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Project Two</a>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Project Two</a>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Project Four</a>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Project Five</a>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Project Two</a>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Project Seven</a>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Project Two</a>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
 		<footer class="footer-distributed">
 			<div class="footer-left">
 				<h3>Clovis North <span>Forensics</span></h3>
