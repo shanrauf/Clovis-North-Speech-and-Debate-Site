@@ -9,3 +9,8 @@
 .tournament-list {
 	margin: 0 25px 0 25px;
 }
+
+.tournament-list img {
+	max-width: 100%;
+	height: 30%;
+}
