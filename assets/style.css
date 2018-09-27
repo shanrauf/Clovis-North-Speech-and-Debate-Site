@@ -1,4 +1,3 @@
-/* Global 
 /* Hides standard hyperlink CSS */
 a:link {
     text-decoration: none;
@@ -22,6 +21,12 @@ a {
 
 /* Nav Bar CSS */
 
+/* Add a dark background on topnav links and the dropdown button on hover */
+.topnav a:hover {
+    background-color: #85C1E9;
+    color: white;
+}
+
 /* JavaScript Back to Top Button */
 #myBtn {
     display: none; /* Hidden by default */
@@ -44,6 +49,8 @@ a {
 #myBtn:hover {
     background-color: #555; /* Add a dark-grey background on hover */
 }
+
+
 
 /* Create two equal columns that floats next to each other */
 .column {
@@ -129,5 +136,3 @@ a {
     float: right;
     padding: 5px 20px 0 20px;
 }
-
-*/

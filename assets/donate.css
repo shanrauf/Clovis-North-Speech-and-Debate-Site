@@ -1,0 +1,29 @@
+.description {
+  text-align: center;
+}
+
+.flex-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap:wrap;
+	align-items: center;
+
+
+	
+}
+
+.logo {
+
+	margin-right: 10%;
+
+}
+
+.donate {
+	width: 50%;
+	margin: 5%;
+}
+
+#check {
+	min-height: 200px;
+	min-width: 400px;
+}

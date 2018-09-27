@@ -16,6 +16,9 @@
 		<!-- NavBar JS -->
 		<script type="text/javascript" src="./js/nav.js"></script>
 
+		<!-- Icon library for Social Media Buttons -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 		<!-- Google Font -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<!-- Bootstrap CSS -->
@@ -98,29 +101,47 @@
 		<!-- Back to Top Button -->
 		<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 		
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		  <a class="navbar-brand" href="#">CN Forensics</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Home</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="./about">About Us</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="./tournaments">Tournaments</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="./calendar">Calendar</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="./resources">Resources</a>
+		      </li>
+		      <li class="nav-item active">
+		        <a class="nav-link" href="./sponsors">Our Sponsors <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="./donate">Donate</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="./contact">Contact Us</a>
+		      </li>
+		    </ul>
+		    
+		    <form class="form-inline my-2 my-lg-0">
+		      <input class="form-control mr-sm-2" type="search" placeholder="(currently disabled)" aria-label="Search">
+		      <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+		    </form>
 
-		<header>
-			<div class="topnav" id="myTopnav">
-			  <a href="./index">Home</a>
-			  <a href="./about">About</a>
-			  <a href="./tournaments">Tournaments</a>
-			  <a href="./calendar">Calendar</a>
-			  <a href="./resources">Resources</a>
-			  <a href="./sponsors" class="active">Our Sponsors</a>
-			  <a href="./donate">Donate</a>
-			  <a href="./contact">Contact Us</a>
-				<div class="social-media-nav" id="social-media-nav">
-				<!-- Social Media Buttons -->
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-				<!-- Add font awesome icons -->
-				<a href="#" class="fa fa-facebook"></a>
-				<a href="https://twitter.com/CN_Forensics" class="fa fa-twitter"></a>
-				<a href="https://www.youtube.com/channel/UC7-3oQsBFklXv_1fotwfL6Q" class="fa fa-youtube"></a>
-				</div>
-			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-			</div>
-		</header>
+		  </div>
+		</nav>
+		
 		<div class='container-fluid' id='sponsors'>
 			<h1><strong>Sponsor Clovis North Forensics</strong></h1>
 			<p>The 2018-19 Clovis North Forensics team is working hard to win its third Valley Championship in a row.  To help create team unity and stir excitement at school, we’re making a team T-shirt and we’re looking for sponsors! If your company would like its name/logo on the back of our team shirt, please consider sponsorship. If interested, please fill out the following sponsorship form and email a digital copy of your company name/logo.  Thank you for helping support Clovis North Forensics!</p>
