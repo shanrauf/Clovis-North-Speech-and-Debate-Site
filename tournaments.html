@@ -9,7 +9,7 @@
 		<meta name="author" content="Shan Rauf">
 		<title>CN Forensics | Tournaments</title>
 		<link rel="shortcut icon" href="./img/favicon.ico" />
-		<!-- Grid JS -->
+		<!-- Tournament Cards JS -->
 		<script type="text/javascript" src="./js/upcomingTournaments.js"></script>
 		<!-- Back to Top Button JS -->
 		<script type="text/javascript" src="./js/backToTop.js"></script>
@@ -84,6 +84,8 @@
 		<link rel="stylesheet" href="./assets/about.css">
 		<link rel="stylesheet" href="./assets/results.css">
 
+		<script type=text/javascript src="./js/upcomingTournaments.js"></script>
+
 		<!-- Footer CSS and Fonts-->
 		<link rel="stylesheet" href="assets/footer-distributed-with-address-and-phones.css">
 		<link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
@@ -146,9 +148,9 @@
         <h3 style= "text-align: center;">Sign Up for <a href="https://www.signupgenius.com/go/60b0c4eafae28a4f85-food">Food/Drinks</a> or <a href="https://docs.google.com/forms/d/1U7W2RXyP-l_ZobWURIsqvpCYvTr4_zdRNZp1bxAeCos">Judging</h3>
 
 		<div class="tournament-list">
-	      <div class="row">
+	      <div class="row" id="tournamentsRow1">
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney1">
 	            <img class="card-img-top" src="http://www.mylemooreleader.com/sites/default/files/imagecache/w550/n1950/LHSFrontNo2.jpg" alt="">
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -157,12 +159,12 @@
 				  <h6>Sept. 15th, 2018<h6>
 	              <h6><a href="https://www.google.com/maps/place/Lemoore+High+School/@36.2975958,-119.7821582,17z/data=!3m1!4b1!4m5!3m4!1s0x8094c0a4f994aa33:0x3901055ee0868c21!8m2!3d36.2975958!4d-119.7799695"target="_blank">Lemoore HS</a></h6>
 	              <p class="card-text">This tournament is for students who have never competed in a speech tournament before. There will be four different speech rounds.</p>
-	              <a role="button" href="./tournaments/1" class="btn btn-primary"><strong>More Info</strong></a>
+	              <button type="button" onclick="tournamentsButton1()" class="btn btn-primary"><strong>More Info</strong></button>
 	            </div>
 	          </div>
 	        </div>
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney2">
 	            <a href="#"><img class="card-img-top" src="https://s3.amazonaws.com/momtrusted/system/photos/3825/preschool-in-orosi-orosi-high-school-childcare-preschool-2862b4fc8222-huge.png?1292285407" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -176,7 +178,7 @@
 	          </div>
 	        </div>
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney3">
 	            <a href="#"><img class="card-img-top" src="https://www.cusd.com/wp-content/uploads/2015/04/Clovis-High-2-resize.jpg" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -190,7 +192,7 @@
 	          </div>
 	        </div>
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney4">
 	            <a href="#"><img class="card-img-top" src="https://images.adsttc.com/media/images/515b/0985/b3fc/4b29/d600/00b3/large_jpg/2edisonacadbldg2880wphoto.jpg?1364920696" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -206,9 +208,9 @@
 	      </div>
 	      <!-- /.row -->
 
-	      <div class="row">
+	      <div class="row" id="tournamentsRow2">
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney1">
 	            <a href="#"><img class="card-img-top" src="https://www.pacific.edu/Images/student-life/conference_services/20140814165120_8300e93f039ccb7ad70754ef08069dd2.jpg" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -222,7 +224,7 @@
 	          </div>
 	        </div>
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney2">
 	            <a href="#"><img class="card-img-top" src="https://www.cusd.com/wp-content/uploads/2015/04/clovis-north-.jpg" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -236,7 +238,7 @@
 	          </div>
 	        </div>
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney3">
 	            <a href="#"><img class="card-img-top" src="http://sangerhigh.sanger.k12.ca.us/Gallery/website%20portfolio%205.jpg" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -250,7 +252,7 @@
 	          </div>
 	        </div>
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney4">
 	            <a href="#"><img class="card-img-top" src="https://www.cusd.com/wp-content/uploads/2015/04/clovis-east.jpg" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -266,9 +268,9 @@
 	      </div>
 	      <!-- /.row -->
 
-	      <div class="row">
+	      <div class="row" id="tournamentsRow3">
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney1">
 	            <a href="#"><img class="card-img-top" src="https://www.cusd.com/wp-content/uploads/2015/04/clovis-north-.jpg" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -282,7 +284,7 @@
 	          </div>
 	        </div>
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney2">
 	            <a href="#"><img class="card-img-top" src="https://static1.squarespace.com/static/51f0158fe4b08d0b403cc47e/524c93f4e4b08c5ba07329d0/524c93f4e4b0f37df6ba8b67/1380750327427/PAC2-Big.jpg" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -296,7 +298,7 @@
 	          </div>
 	        </div>
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney3">
 	            <a href="#"><img class="card-img-top" src="http://www.fresnostatenews.com/wp-content/uploads/2013/04/UHS.jpg" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -310,7 +312,7 @@
 	          </div>
 	        </div>
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney4">
 	            <a href="#"><img class="card-img-top" src="http://sangerhigh.sanger.k12.ca.us/Gallery/website%20portfolio%205.jpg" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -326,9 +328,9 @@
 	      </div>
 	      <!-- /.row -->
 
-	      <div class="row">
+	      <div class="row" id="tournamentsRow4">
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney1">
 	            <a href="#"><img class="card-img-top" src="https://scet.berkeley.edu/wp-content/uploads/UC-Berkeley-151.jpg" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -342,7 +344,7 @@
 	          </div>
 	        </div>
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney2">
 	            <a href="#"><img class="card-img-top" src="https://livingnewdeal.org/wp-content/uploads/2008/08/ebhs_1.jpg" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -356,7 +358,7 @@
 	          </div>
 	        </div>
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney3">
 	            <a href="#"><img class="card-img-top" src="https://www.cusd.com/wp-content/uploads/2015/04/clovis-north-.jpg" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -370,7 +372,7 @@
 	          </div>
 	        </div>
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney4">
 	            <a href="#"><img class="card-img-top" src="http://classreport.org/usa/ca/fresno/bhs/schoolpage.jpg" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -386,9 +388,9 @@
 	      </div>
 	      <!-- /.row -->
 
-	      <div class="row">
+	      <div class="row" id="tournamentsRow5">
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney1">
 	            <a href="#"><img class="card-img-top" src="http://www.angelfire.com/sd/thswarriors/basketball/bhs.jpg" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -402,7 +404,7 @@
 	          </div>
 	        </div>
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney2">
 	            <a href="#"><img class="card-img-top" src="http://www.bushconstruction.net/files/images/Chowchilla/chowchilla-01.jpg" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -416,7 +418,7 @@
 	          </div>
 	        </div>
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney3">
 	            <a href="#"><img class="card-img-top" src="http://www.veritas.org/wp-content/uploads/2013/09/CSU-Long-beach.jpg" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
@@ -430,7 +432,7 @@
 	          </div>
 	        </div>
 	        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-	          <div class="card">
+	          <div class="card tourney4">
 	            <a href="#"><img class="card-img-top" src="https://images.adsttc.com/media/images/515b/0985/b3fc/4b29/d600/00b3/large_jpg/2edisonacadbldg2880wphoto.jpg?1364920696" width="800" height="400" alt=""></a>
 	            <div class="card-body">
 	              <h4 class="card-title">
