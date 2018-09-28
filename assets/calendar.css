@@ -1,0 +1,12 @@
+.responsive-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    background: url('https://s20.postimg.org/o09gf7fvx/bag.jpg') no-repeat center top;
+    background-size: contain;
+}
+
+.responsive-iframe {
+    width: 90%;
+    margin-top: 50px;
+}
