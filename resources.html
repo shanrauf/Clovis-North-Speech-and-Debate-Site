@@ -43,39 +43,6 @@
 		ga('create', 'UA-XXXXX-Y', 'auto');
 		ga('send', {'hitType': 'event', 'eventCategory': 'categoryPdf', 'eventAction': 'clickAction', 'eventLabel': 'myLabel' });
 		ga('send', 'pageview');
-
-		// Gets a reference to the form element, assuming
-		// it contains the id attribute "signup-form".
-		var form = document.getElementById('signup-form');
-
-		// Adds a listener for the "submit" event.
-		form.addEventListener('submit', function(event) {
-
-		  // Prevents the browser from submitting the form
-		  // and thus unloading the current page.
-		  event.preventDefault();
-
-		  // Creates a timeout to call `submitForm` after one second.
-		  setTimeout(submitForm, 1000);
-
-		  // Keeps track of whether or not the form has been submitted.
-		  // This prevents the form from being submitted twice in cases
-		  // where `hitCallback` fires normally.
-		  var formSubmitted = false;
-
-		  function submitForm() {
-		    if (!formSubmitted) {
-		      formSubmitted = true;
-		      form.submit();
-		    }
-		  }
-
-		  // Sends the event to Google Analytics and
-		  // resubmits the form once the hit is done.
-		  ga('send', 'event', 'Signup Form', 'submit', {
-		    hitCallback: submitForm
-		  });
-		});
 		</script>
 		<!-- End Google Analytics -->
 
@@ -138,15 +105,16 @@
 		  </div>
 		</nav>
 
-
-		<iframe
+<!-- 		<iframe
 		    id="surveylegend-survey"
 		    src="https://www.surveylegend.com/s/14mj"
 		    width="100%"
 		    height="1000px"
 		    allowtransparency="true"
 		    style="frameborder: 0; border: 0; margin: 0 auto; background: transparent; background-color: transparent;">
-		</iframe>
+		</iframe> -->
+
+		<h1>Under maintenance</h1>
 
 		<footer class="footer-distributed">
 			<div class="footer-left">

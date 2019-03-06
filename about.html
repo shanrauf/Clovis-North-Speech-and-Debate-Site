@@ -18,11 +18,19 @@
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-		<!-- Nav Bar -->
-		<script type="text/javascript" src="./js/nav.js"></script>
-
 		<!-- Icon library for Social Media Buttons -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<!-- Google Analytics Global Sites Tag -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125806901-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-125806901-1');
+
+		</script>
 
 		<!-- Google Analytics Global Sites Tag -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125806901-1"></script>
@@ -45,39 +53,6 @@
 		ga('create', 'UA-XXXXX-Y', 'auto');
 		ga('send', {'hitType': 'event', 'eventCategory': 'categoryPdf', 'eventAction': 'clickAction', 'eventLabel': 'myLabel' });
 		ga('send', 'pageview');
-
-		// Gets a reference to the form element, assuming
-		// it contains the id attribute "signup-form".
-		var form = document.getElementById('signup-form');
-
-		// Adds a listener for the "submit" event.
-		form.addEventListener('submit', function(event) {
-
-		  // Prevents the browser from submitting the form
-		  // and thus unloading the current page.
-		  event.preventDefault();
-
-		  // Creates a timeout to call `submitForm` after one second.
-		  setTimeout(submitForm, 1000);
-
-		  // Keeps track of whether or not the form has been submitted.
-		  // This prevents the form from being submitted twice in cases
-		  // where `hitCallback` fires normally.
-		  var formSubmitted = false;
-
-		  function submitForm() {
-		    if (!formSubmitted) {
-		      formSubmitted = true;
-		      form.submit();
-		    }
-		  }
-
-		  // Sends the event to Google Analytics and
-		  // resubmits the form once the hit is done.
-		  ga('send', 'event', 'Signup Form', 'submit', {
-		    hitCallback: submitForm
-		  });
-		});
 		</script>
 		<!-- End Google Analytics -->
 
@@ -85,8 +60,6 @@
 		<link rel="stylesheet" href="./assets/style.css">
 		<link rel="stylesheet" href="./assets/about.css">
 		<link rel="icon" type="image/x-icon" href="favicon.ico"/>
-
-
 		
 		<!-- Footer CSS and Fonts-->
 		<link rel="stylesheet" href="assets/footer-distributed-with-address-and-phones.css">
@@ -97,6 +70,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	</head>
+	
 	<body>
 		<!-- Back to Top Button -->
 		<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
@@ -133,12 +107,11 @@
 			        </li>
 		    	</ul>
 		    
-		    <form class="form-inline my-2 my-lg-0">
-		        <input class="form-control mr-sm-2" type="search" placeholder="(currently disabled)" aria-label="Search">
-		        <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-		    </form>
-
-		   </div>
+			    <form class="form-inline my-2 my-lg-0">
+			        <input class="form-control mr-sm-2" type="search" placeholder="(currently disabled)" aria-label="Search">
+			        <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+			    </form>
+		    </div>
 		</nav>
 					
 		<div class="d-table">
