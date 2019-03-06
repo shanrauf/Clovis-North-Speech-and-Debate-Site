@@ -1,0 +1,16 @@
+/* Contact Us Page */
+#contact-us {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.contact-us-submit {
+    background-color: lightblue;
+    color: white;
+    border-radius: 12px;
+    font-size: 20px;
+    padding: 12px 40%;
+    transition-duration: 0.4s;
+}
+.contact-us-submit:hover {
+    background-color: #85C1E9;
+}
