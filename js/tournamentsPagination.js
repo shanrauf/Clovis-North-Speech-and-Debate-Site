@@ -1,5 +1,4 @@
 /* Home Page Tournaments Pagination */
-
 function tournamentsPagination1() {
     var page1 = document.getElementById("tournamentsPagination1");
     var page2 = document.getElementById("tournamentsPagination2");
@@ -68,5 +67,3 @@ function tournamentsPagination5() {
  	page4.style.display = "none";
  	page5.style.display = "flex";
 }
-
-

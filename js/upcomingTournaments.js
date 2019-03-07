@@ -353,7 +353,6 @@ function tournamentsMoreInfo() {
 	}
 
 	else if (activeButton === 1) {
-
 		activeButton = 0;
 
 		tourneyExpand.classList.add("col-md-4", "col-sm-6", "portfolio-item", "col-lg-3");
@@ -370,5 +369,4 @@ function tournamentsMoreInfo() {
 
 		window.location = 'tournaments' + rowLocation;
 	}
-
 }
