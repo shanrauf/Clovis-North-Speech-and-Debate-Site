@@ -7,3 +7,16 @@
 #contact-us {
 	display: inline-block;
 }
+
+.contact-us-submit {
+    background-color: lightblue;
+    color: white;
+    border-radius: 12px;
+    font-size: 20px;
+    padding: 12px 40%;
+    transition-duration: 0.3s;
+    cursor:pointer;
+}
+.contact-us-submit:hover {
+    background-color: #85C1E9;
+}
