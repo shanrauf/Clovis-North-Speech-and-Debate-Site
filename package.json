@@ -1,0 +1,97 @@
+{
+  "name": "vue-spa-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate for Vue single-page applications.",
+  "author": "Shan Rauf",
+  "license": "ISC",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "cross-env NODE_ENV=development DEBUG=true webpack-dev-server --progress",
+    "prod": "cross-env NODE_ENV=production webpack --progress",
+    "test": "echo 'create test script'",
+    "deploy": "npm run prod && firebase deploy",
+    "lint": "eslint --ext .js,.vue src",
+    "lint:fix": "eslint --fix --ext .js,.vue src",
+    "prettier": "prettier \"src/**/*.{js,vue}\"",
+    "prettier:write": "npm run prettier -- --write",
+    "loc": "git ls-files | xargs wc -l"
+  },
+  "dependencies": {
+    "@babel/polyfill": "~7.2",
+    "archiver": "^3.1.1",
+    "core-js": "^3.2.1",
+    "lodash": "^4.17.15",
+    "material-icons": "^0.3.1",
+    "vue": "^2.6.10",
+    "vue-router": "^3.1.2",
+    "vuetify": "^2.0.5",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.2",
+    "@babel/plugin-proposal-class-properties": "~7.3",
+    "@babel/plugin-proposal-decorators": "~7.3",
+    "@babel/plugin-proposal-json-strings": "~7.2",
+    "@babel/plugin-syntax-dynamic-import": "~7.2",
+    "@babel/plugin-syntax-import-meta": "~7.2",
+    "@babel/preset-env": "^7.5.5",
+    "@fortawesome/fontawesome-free": "^5.10.1",
+    "@mdi/font": "^3.9.97",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "~8.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "^2.0.0",
+    "copy-webpack-plugin": "^5.0.4",
+    "cross-env": "~5.2",
+    "css-loader": "^3.2.0",
+    "deepmerge": "^4.0.0",
+    "eslint": "^6.1.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "eslint-plugin-vuetify": "^1.0.0-beta.3",
+    "file-loader": "^4.2.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-webpack-harddisk-plugin": "^1.0.1",
+    "html-webpack-plugin": "^4.0.0-beta.8",
+    "image-webpack-loader": "^5.0.0",
+    "material-design-icons-iconfont": "^5.0.1",
+    "mini-css-extract-plugin": "^0.5.0",
+    "optimize-css-assets-webpack-plugin": "~3.2",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.22.10",
+    "sass-loader": "^7.3.1",
+    "uglifyjs-webpack-plugin": "^1.3.0",
+    "url-loader": "^2.1.0",
+    "vue-loader": "^15.7.1",
+    "vue-style-loader": "~4.1",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.39.1",
+    "webpack-cli": "~3.2",
+    "webpack-dev-server": "~3.1",
+    "webpack-extension-reloader": "^1.1.0",
+    "webpack-hot-middleware": "~2.24",
+    "webpack-merge": "^4.2.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}

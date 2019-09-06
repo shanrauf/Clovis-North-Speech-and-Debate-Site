@@ -1,8 +1,0 @@
-/* Pagination Initial Settings (When Page Loads; Then JS Reveals/Hides Different Tourneys) */
-#tournamentsPagination1 {
-    display: flex;
-}
-
-#tournamentsPagination2, #tournamentsPagination3, #tournamentsPagination4, #tournamentsPagination5 {
-    display: none;
-}
