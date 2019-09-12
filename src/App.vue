@@ -1,21 +1,20 @@
 <template>
-  <div id="app">
-    <v-app id="vuetify">
-      <v-content>
-        <BaseNav />
-        <v-container>
-          <v-layout justify-center>
-            <v-flex>
-              <transition name="fade" mode="out-in">
-                <router-view />
-              </transition>
-            </v-flex>
-          </v-layout>
-        </v-container>
-      </v-content>
-      <BaseFooter />
-    </v-app>
-  </div>
+  <v-app id="app" class="overflow-hidden">
+    <v-content
+      id="scrolling-techniques"
+      class="overflow-y-auto"
+      max-height="600"
+      style="height: 1000px;"
+    >
+      <BaseNav />
+      <v-flex>
+        <transition name="fade" mode="out-in">
+          <router-view />
+        </transition>
+        <BaseFooter />
+      </v-flex>
+    </v-content>
+  </v-app>
 </template>
 
 <script>

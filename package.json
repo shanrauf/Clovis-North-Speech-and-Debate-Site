@@ -1,7 +1,7 @@
 {
-  "name": "vue-spa-boilerplate",
+  "name": "clovisnorthforensics",
   "version": "1.0.0",
-  "description": "Boilerplate for Vue single-page applications.",
+  "description": "Clovis North Forensics website.",
   "author": "Shan Rauf",
   "license": "ISC",
   "scripts": {

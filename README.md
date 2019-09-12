@@ -1,5 +1,6 @@
-# ScanIn
+# Clovis North Forensics Website
+This is the website for the Clovis North High School Speech & Debate (Forensics) team.  
 
-This application automates the attendance process for clubs & academic teams. Students use their ID cards to scan in/out of meetings - the program then automatically calculates student hours of participation and attendance.
+Access it [here](https://clovisnorthforensics.org/).
 
-![picture](src/assets/images/logo.png)
+![picture](src/assets/images/logo1.png)
