@@ -11,11 +11,6 @@ const DonateView = () => import('@/views/DonateView.vue');
 const ContactView = () => import('@/views/ContactView.vue');
 const LoginView = () => import('@/views/LoginView.vue');
 const AdminView = () => import('@/views/AdminView.vue');
-const AdminAnalyticsView = () => import('@/views/AdminAnalyticsView.vue');
-const AdminTournamentsView = () => import('@/views/AdminTournamentsView.vue');
-const AdminAnnouncementsView = () =>
-  import('@/views/AdminAnnouncementsView.vue');
-const AdminHomeView = () => import('@/views/AdminHomeView.vue');
 
 const routes = [
   {
