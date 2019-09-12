@@ -1,5 +1,5 @@
 <template>
-  <v-footer padless>
+  <v-footer class="footer-container" padless>
     <footer class="footer-distributed">
       <div class="footer-left">
         <h3>
@@ -59,6 +59,9 @@
 </template>
 
 <style lang="scss" scoped>
+.footer-container {
+  margin-top: 20px;
+}
 .footer-distributed {
   background-color: #292c2f;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);

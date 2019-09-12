@@ -31,6 +31,9 @@ export default {
 </script>
 
 <style>
+html {
+  overflow-y: hidden !important;
+}
 body {
   font-size: 100%;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
