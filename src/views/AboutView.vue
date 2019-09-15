@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>This is a test</p>
+    <v-divider />
   </div>
 </template>
 

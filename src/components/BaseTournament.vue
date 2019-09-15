@@ -18,7 +18,6 @@
       </v-card-actions>
     </v-card>
     <v-overlay :value="overlay">
-      <JudgeForm />
       <v-btn icon @click="overlay = false">
         <v-icon>mdi-close</v-icon>
       </v-btn>
@@ -27,11 +26,7 @@
 </template>
 
 <script>
-import JudgeForm from "@/components/JudgeForm.vue";
 export default {
-  components: {
-    JudgeForm
-  },
   data() {
     return {
       overlay: false

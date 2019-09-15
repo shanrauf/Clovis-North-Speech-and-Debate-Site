@@ -2,17 +2,17 @@
   <div>
     <BaseCarousel />
     <br />
-    <BaseTournament />
+    <UpcomingTournaments />
   </div>
 </template>
 <script>
 import BaseCarousel from "@/components/BaseCarousel.vue";
-import BaseTournament from "@/components/BaseTournament.vue";
+import UpcomingTournaments from "@/components/UpcomingTournaments.vue";
 
 export default {
   components: {
     BaseCarousel,
-    BaseTournament
+    UpcomingTournaments
   }
 };
 </script>
