@@ -15,6 +15,11 @@ import BaseTournament from "@/components/BaseTournament.vue";
 export default {
   components: {
     BaseTournament
+  },
+  data() {
+    return {
+      page: 1
+    };
   }
 };
 </script>

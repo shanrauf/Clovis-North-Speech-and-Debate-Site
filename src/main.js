@@ -47,7 +47,9 @@ const opts = {
       trash: 'trash',
       delete: 'clear',
       list: 'list',
-      github: 'fab fa-github'
+      github: 'fab fa-github',
+      google: 'fab fa-google',
+      add: 'add_circle_outline'
     }
   }
 };

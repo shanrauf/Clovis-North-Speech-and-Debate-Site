@@ -11,13 +11,15 @@ const DonateView = () => import('@/views/DonateView.vue');
 const ContactView = () => import('@/views/ContactView.vue');
 const LoginView = () => import('@/views/LoginView.vue');
 const AdminView = () => import('@/views/AdminView.vue');
+const RegisterView = () => import('@/views/RegisterView.vue');
+const ErrorView = () => import('@/views/ErrorView.vue');
 
 const routes = [
   {
     path: '/',
     meta: {
-      name: 'Test Page',
-      title: 'Test Page',
+      name: 'CN Forensics | Home',
+      title: 'CN Forensics | Home',
       requiresAuth: true
     },
     component: HomeView
@@ -86,6 +88,15 @@ const routes = [
     component: LoginView
   },
   {
+    path: '/register',
+    meta: {
+      name: 'Register Page',
+      title: 'CN Forensics | Register',
+      requiresAuth: true
+    },
+    component: RegisterView
+  },
+  {
     path: '/admin',
     meta: {
       name: 'Admin Page',
@@ -93,6 +104,15 @@ const routes = [
       requiresAuth: true
     },
     component: AdminView
+  },
+  {
+    path: '*',
+    meta: {
+      name: 'Error Page',
+      title: 'Error Page',
+      requiresAuth: false
+    },
+    component: ErrorView
   }
 ];
 

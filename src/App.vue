@@ -1,11 +1,6 @@
 <template>
   <v-app id="app" class="overflow-hidden">
-    <v-content
-      id="scrolling-techniques"
-      class="overflow-y-auto"
-      max-height="600"
-      style="height: 1000px;"
-    >
+    <v-content id="scrolling-techniques" class="overflow-y-auto" style="height: 1000px;">
       <BaseNav />
       <v-flex>
         <transition name="fade" mode="out-in">

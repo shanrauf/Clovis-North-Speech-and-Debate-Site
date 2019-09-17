@@ -103,7 +103,7 @@ const actions = {
     commit('setUser', user);
   },
   sendToDashboard({ commit }) {
-    router.push('dashboard');
+    router.push('admin');
     commit({
       type: 'setSnackbar',
       color: 'success',

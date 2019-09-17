@@ -1,8 +1,8 @@
 <template>
-  <v-layout justify-center class="login-container">
+  <v-layout justify-center class="register-container">
     <v-flex xs12 sm6>
-      <v-card class="login-form">
-        <div class="text-center login-title">Login</div>
+      <v-card class="signup-form">
+        <div class="text-center signup-title">Sign Up</div>
         <v-form ref="form" v-model="valid" lazy-validation>
           <v-btn class="google-button" rounded color="#df4930" @click="googleAuth">
             <v-icon color="white" left>$vuetify.icons.google</v-icon>
@@ -19,18 +19,23 @@
             type="password"
             required
           ></v-text-field>
-
-          <v-checkbox v-model="checkbox" label="Remember Password?" required></v-checkbox>
+          <v-text-field
+            v-model="confirmPassword"
+            :rules="confirmPasswordRules"
+            label="Confirm password"
+            type="password"
+            required
+          ></v-text-field>
 
           <v-btn raised :disabled="!valid" color="#48ab80" class="mr-4" @click="validate">
-            <span class="white-text">Validate</span>
+            <span class="white-text">Register</span>
           </v-btn>
         </v-form>
       </v-card>
       <br />
       <p class="text-center">
-        Don't have an account?
-        <router-link to="/register">Register Now!</router-link>
+        Already have an account?
+        <router-link to="/login">Login Here!</router-link>
       </p>
     </v-flex>
   </v-layout>
@@ -44,6 +49,7 @@ export default {
       valid: true,
       email: "",
       password: "",
+      confirmPassword: "",
       emailRules: [
         v => !!v || "E-mail is required",
         v => /.+@.+\..+/.test(v) || "E-mail must be valid"
@@ -54,6 +60,10 @@ export default {
           (v.length > 8 && v.length < 40) ||
           "Passwords must be 8-40 characters long"
       ],
+      confirmPasswordRules: [
+        v => !!v || "This field is required",
+        v => v == this.password || "Passwords must match"
+      ],
       select: null,
       checkbox: false
     };
@@ -63,10 +73,9 @@ export default {
     validate() {
       if (this.$refs.form.validate()) {
         this.$store.dispatch({
-          type: "login",
+          type: "createAccount",
           email: this.email,
-          password: this.password,
-          rememberAuth: this.checkbox
+          password: this.password
         });
       }
     }
@@ -75,7 +84,7 @@ export default {
 </script>
 
 <style>
-.login-container {
+.register-container {
   margin: 30px;
 }
 .google-button {
@@ -96,16 +105,15 @@ export default {
   top: -11px;
   z-index: 1;
 }
-.login-form {
+.signup-form {
   padding: 20px;
 }
-.login-title {
-  margin: 0 0 10px 0;
+.signup-title {
   font-size: 25px;
   font-weight: bold;
 }
 .white-text {
-  color: white;
+  color: #f4f4f4;
 }
 .v-application a {
   color: #48ab80;

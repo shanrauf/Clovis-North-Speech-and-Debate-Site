@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card class="mx-auto" max-width="400" raised>
+    <v-card class="mx-auto" max-width="400" height="350px" raised>
       <v-img class="white--text" height="200px" src="../assets/images/clovisnorthHS.jpg">
         <v-card-title class="align-end fill-height">Example Speech/Debate Tournament</v-card-title>
       </v-img>
