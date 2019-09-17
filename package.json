@@ -6,10 +6,9 @@
   "license": "ISC",
   "scripts": {
     "start": "npm run dev",
-    "dev": "cross-env NODE_ENV=development DEBUG=true webpack-dev-server --progress",
-    "prod": "cross-env NODE_ENV=production webpack --progress",
+    "dev": "cross-env NODE_ENV=development DEBUG=true webpack-dev-server --config scripts/webpack.dev.config.js --progress",
+    "build": "webpack --config scripts/webpack.prod.config.js && cp src/_redirects dist/",
     "test": "echo 'create test script'",
-    "deploy": "npm run prod && firebase deploy",
     "lint": "eslint --ext .js,.vue src",
     "lint:fix": "eslint --fix --ext .js,.vue src",
     "prettier": "prettier \"src/**/*.{js,vue}\"",

@@ -104,7 +104,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
     new webpack.EnvironmentPlugin(['NODE_ENV']),
-    new CopyPlugin([{ from: 'src/assets/images', to: 'assets/images' }], {
+    new CopyPlugin([{ from: 'src/assets', to: 'assets/' }], {
       copyUnmodified: true
     }),
     new HtmlWebpackPlugin({
