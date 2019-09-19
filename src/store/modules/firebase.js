@@ -4,6 +4,7 @@ import 'firebase/database';
 import router from '@/router';
 
 const config = {
+  apiKey: 'AIzaSyDavKw-jazZEEi60qsesBGLn0eUkSICYAM',
   authDomain: 'clovisnorthforensics-aaeaa.firebaseapp.com',
   databaseURL: 'https://clovisnorthforensics-aaeaa.firebaseio.com',
   projectId: 'clovisnorthforensics-aaeaa',
