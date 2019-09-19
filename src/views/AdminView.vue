@@ -13,7 +13,7 @@
 
     <br />
 
-    <BaseDataIterator v-if="webpage" :webpage="webpage" />
+    <BaseDataIterator v-if="webpage" :webpage="webpage" :createNewButton="true" />
   </v-container>
   <!-- <div class="form-container">
     <BaseForm />

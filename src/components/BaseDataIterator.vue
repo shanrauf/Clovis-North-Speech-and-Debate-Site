@@ -7,8 +7,9 @@
       hide-default-footer
     >
       <template v-slot:default="props">
-        <v-row>
-          <v-col v-if="page == 1" cols="12" sm="6" md="4" lg="3">
+        <h1>{{webpage}}</h1>
+        <v-row wrap>
+          <v-col v-if="page == 1 && createNewButton" cols="12" sm="6" md="4" lg="3">
             <BaseCreateNewCard />
           </v-col>
           <v-col v-for="item in props.items" :key="item.name" cols="12" sm="6" md="4" lg="3">
@@ -31,6 +32,10 @@ export default {
   props: {
     webpage: {
       type: String,
+      required: true
+    },
+    createNewButton: {
+      type: Boolean,
       required: true
     }
   },
@@ -187,7 +192,7 @@ export default {
   },
   computed: {
     itemsPerPage() {
-      if (this.page == 1) {
+      if (this.createNewButton && this.page == 1) {
         return 7;
       } else {
         return 8;

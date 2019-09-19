@@ -1,18 +1,20 @@
 <template>
   <div>
     <BaseCarousel />
+
     <br />
-    <UpcomingTournaments />
+
+    <BaseDataIterator :createNewButton="false" :webpage="'Upcoming Tournaments'" />
   </div>
 </template>
 <script>
 import BaseCarousel from "@/components/BaseCarousel.vue";
-import UpcomingTournaments from "@/components/UpcomingTournaments.vue";
+import BaseDataIterator from "@/components/BaseDataIterator.vue";
 
 export default {
   components: {
     BaseCarousel,
-    UpcomingTournaments
+    BaseDataIterator
   }
 };
 </script>

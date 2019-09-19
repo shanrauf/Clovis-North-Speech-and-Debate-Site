@@ -4,13 +4,12 @@ import 'firebase/database';
 import router from '@/router';
 
 const config = {
-  apiKey: 'AIzaSyCVF58PkyMkR-PiBRTnDMbW5UEXDKUBUTY',
-  authDomain: 'scanin-5b9bf.firebaseapp.com',
-  databaseURL: 'https://scanin-5b9bf.firebaseio.com',
-  projectId: 'scanin-5b9bf',
-  storageBucket: 'scanin-5b9bf.appspot.com',
-  messagingSenderId: '685372796493',
-  appId: '1:685372796493:web:946dbbb30eff2ee0'
+  authDomain: 'clovisnorthforensics-aaeaa.firebaseapp.com',
+  databaseURL: 'https://clovisnorthforensics-aaeaa.firebaseio.com',
+  projectId: 'clovisnorthforensics-aaeaa',
+  storageBucket: '',
+  messagingSenderId: '169091814102',
+  appId: '1:169091814102:web:25ce29b64ed9b247d5af77'
 };
 
 firebase.initializeApp(config);
@@ -25,6 +24,7 @@ const state = () => {
     snackbarMessage: '',
     lastSeenUpdate: null,
     updatesOverlay: false,
+    tournaments: [],
     updates: []
   };
 };
@@ -53,9 +53,9 @@ const getters = {
 };
 
 const actions = {
-  async createUpdates({ commit }, uid) {
+  async createUpdates({ commit }) {
     await database
-      .ref('/updates/' + uid)
+      .ref('/updates')
       .once('value')
       .then(snap => {
         commit('setUpdates', snap.val());
@@ -164,42 +164,39 @@ const actions = {
         alert(error.message);
       });
   },
-  async onCreateUpdate({ commit, state }, payload) {
+  async onCreateUpdate({ commit }, payload) {
     let now = Date.now();
-    await firebase
-      .database()
-      .ref('updates/' + state.user.uid + '/' + now)
-      .set(
-        {
-          title: payload.title,
-          text: payload.text,
-          type: payload.updateType
-        },
-        error => {
-          if (error) {
-            commit({
-              type: 'setSnackbar',
-              color: 'error',
-              message: 'There was an error...',
-              enabled: true
-            });
-          } else {
-            commit({
-              type: 'updateLocalUpdates',
-              title: payload.title,
-              text: payload.text,
-              updateType: payload.updateType,
-              now: now
-            });
-            commit({
-              type: 'setSnackbar',
-              color: 'success',
-              message: 'Successfully created an update!',
-              enabled: true
-            });
-          }
+    await database.ref('updates/' + now).set(
+      {
+        title: payload.title,
+        text: payload.text,
+        type: payload.updateType
+      },
+      error => {
+        if (error) {
+          commit({
+            type: 'setSnackbar',
+            color: 'error',
+            message: 'There was an error...',
+            enabled: true
+          });
+        } else {
+          commit({
+            type: 'updateLocalUpdates',
+            title: payload.title,
+            text: payload.text,
+            updateType: payload.updateType,
+            now: now
+          });
+          commit({
+            type: 'setSnackbar',
+            color: 'success',
+            message: 'Successfully created an update!',
+            enabled: true
+          });
         }
-      );
+      }
+    );
   },
   async createLastSeenUpdate({ dispatch, commit, state }, uid) {
     await database
@@ -216,17 +213,84 @@ const actions = {
         }
       });
   },
+  async createTournaments({ commit, state }) {
+    await database
+      .ref('tournaments/' + state.user.uid)
+      .once('value')
+      .then(snap => {
+        commit('setTournaments', snap.val());
+        commit({
+          type: 'setSnackbar',
+          color: 'success',
+          message: 'Successfully created an update!',
+          enabled: true
+        });
+      });
+  },
   async updateLastSeenUpdate({ commit, state }) {
     let now = Date.now();
-    await firebase
-      .database()
-      .ref('lastSeenUpdate/' + state.user.uid)
-      .set(now, error => {
-        if (error) {
-          console.error(error);
-        } else {
-          commit('updateLocalLastSeenUpdate', now);
+    await database.ref('lastSeenUpdate/' + state.user.uid).set(now, error => {
+      if (error) {
+        console.error(error);
+      } else {
+        commit('updateLocalLastSeenUpdate', now);
+      }
+    });
+  },
+  async onAddTournament({ commit, state }, payload) {
+    let now = Date.now();
+    await database
+      .ref('tournaments/' + state.user.uid + '/' + payload.timestamp)
+      .set(
+        {
+          name: payload.name,
+          description: payload.name,
+          location: payload.location
+        },
+        error => {
+          if (error) {
+            console.error(error);
+          } else {
+            commit({
+              type: 'updateLocalTournaments',
+              title: payload.title,
+              text: payload.text,
+              updateType: payload.updateType,
+              now: now
+            });
+            commit({
+              type: 'setSnackbar',
+              color: 'success',
+              message: 'Successfully created an update!',
+              enabled: true
+            });
+          }
         }
+      );
+  },
+  async onDeleteTournament({ commit }, payload) {
+    let ref = database.ref(
+      'tournaments/' + state.user.uid + '/' + payload.timestamp
+    );
+    await ref
+      .remove()
+      .then(() => {
+        commit({
+          type: 'setSnackbar',
+          color: 'success',
+          message: 'Successfully created an update!',
+          enabled: true
+        });
+        commit('updateLocalTournaments', payload);
+      })
+      .catch(error => {
+        console.log(error);
+        commit({
+          type: 'setSnackbar',
+          color: 'error',
+          message: 'There was an error...',
+          enabled: true
+        });
       });
   }
 };
@@ -248,6 +312,9 @@ const mutations = {
       }
     });
   },
+  updateLocalTournaments(state, payload) {
+    state.tournaments = payload; // do something here
+  },
   setUpdates(state, updates) {
     if (!updates) {
       state.updates = [];
@@ -258,6 +325,9 @@ const mutations = {
       }));
       state.updates = updatesArray.reverse();
     }
+  },
+  setTournaments(state, tournaments) {
+    state.tournaments = tournaments; // probably
   },
   setUser(state, user) {
     state.user = user;
