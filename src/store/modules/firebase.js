@@ -1,6 +1,7 @@
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+import 'firebase/storage';
 import router from '@/router';
 
 const config = {
@@ -8,7 +9,7 @@ const config = {
   authDomain: 'clovisnorthforensics-aaeaa.firebaseapp.com',
   databaseURL: 'https://clovisnorthforensics-aaeaa.firebaseio.com',
   projectId: 'clovisnorthforensics-aaeaa',
-  storageBucket: '',
+  storageBucket: 'clovisnorthforensics-aaeaa.appspot.com',
   messagingSenderId: '169091814102',
   appId: '1:169091814102:web:25ce29b64ed9b247d5af77'
 };
@@ -16,6 +17,7 @@ const config = {
 firebase.initializeApp(config);
 
 const database = firebase.database();
+const storageRef = firebase.storage().ref();
 
 const state = () => {
   return {
@@ -26,7 +28,8 @@ const state = () => {
     lastSeenUpdate: null,
     updatesOverlay: false,
     tournaments: [],
-    updates: []
+    updates: [],
+    images: []
   };
 };
 
@@ -44,6 +47,7 @@ const getters = {
       });
     });
   },
+  checkItems: state => items => !!state[items],
   getUpdatesOverlay: state => state.updatesOverlay,
   getItems: state => itemsToGet => state[itemsToGet],
   getLastSeenUpdate: state => state.lastSeenUpdate,
@@ -234,7 +238,6 @@ const actions = {
     });
   },
   async onAddTournament({ commit }, payload) {
-    let now = Date.now();
     await database.ref('tournaments/' + payload.timestamp).set(
       {
         name: payload.name,
@@ -243,19 +246,18 @@ const actions = {
       },
       error => {
         if (error) {
-          console.error(error);
-        } else {
           commit({
-            type: 'updateLocalTournaments',
-            title: payload.title,
-            text: payload.text,
-            updateType: payload.updateType,
-            now: now
+            type: 'setSnackbar',
+            color: 'error',
+            message: 'There was an error...',
+            enabled: true
           });
+        } else {
+          commit('addLocalTournament', payload);
           commit({
             type: 'setSnackbar',
             color: 'success',
-            message: 'Successfully created an update!',
+            message: 'Successfully added a tournament!',
             enabled: true
           });
         }
@@ -270,10 +272,10 @@ const actions = {
         commit({
           type: 'setSnackbar',
           color: 'success',
-          message: 'Successfully created an update!',
+          message: 'Successfully deleted a tournament!',
           enabled: true
         });
-        commit('updateLocalTournaments', payload);
+        commit('deleteLocalTournament', payload);
       })
       .catch(error => {
         console.log(error);
@@ -311,6 +313,16 @@ const mutations = {
       }
     });
   },
+  addLocalTournament(state, payload) {
+    state.tournaments.push({
+      key: payload.timestamp,
+      value: {
+        name: payload.name,
+        location: payload.location,
+        description: payload.description
+      }
+    });
+  },
   setTournaments(state, tournaments) {
     if (!tournaments) {
       state.tournaments = [];
@@ -321,6 +333,9 @@ const mutations = {
       }));
       state.tournaments = tournamentsArray.reverse();
     }
+  },
+  setImages(state, images) {
+    state.images = images;
   },
   setUser(state, user) {
     state.user = user;

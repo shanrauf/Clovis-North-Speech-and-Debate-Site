@@ -59,11 +59,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["getUser", "checkAuth", "getItems"])
+    ...mapGetters(["getUser", "checkAuth", "getItems", "checkItems"])
   },
   methods: {
     getData() {
-      this.$store.dispatch("create" + this.currentComponent);
+      if (!this.checkItems(this.currentComponent)) {
+        this.$store.dispatch("create" + this.currentComponent);
+      }
       return this.getItems("tournaments");
     }
   }

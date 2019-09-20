@@ -18,6 +18,7 @@
         </v-row>
       </template>
     </v-data-iterator>
+
     <div class="text-center">
       <v-pagination v-if="showPagination" v-model="page" :length="numberOfPages" circle></v-pagination>
     </div>
@@ -72,6 +73,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-</style>

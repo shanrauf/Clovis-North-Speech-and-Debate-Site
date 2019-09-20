@@ -9,7 +9,7 @@
         <v-img
           class="card-image white--text"
           height="200px"
-          src="../assets/images/clovisnorthHS.jpg"
+          src="../assets/images/Clovis North High School.jpg"
         >
           <v-card-title class="align-end fill-height">
             <span class="card-title">{{item.value.name}}</span>
@@ -28,7 +28,6 @@
           <v-btn v-if="item.value.description" color="primary" @click="flipped = !flipped">More Info</v-btn>
           <v-btn
             v-if="item.value.results"
-            text
             color="orange"
             @click="confirmOverlay = !confirmOverlay"
           >Results</v-btn>

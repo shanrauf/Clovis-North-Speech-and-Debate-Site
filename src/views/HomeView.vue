@@ -4,6 +4,7 @@
 
     <br />
 
+    <h1 align="center">Upcoming Tournaments</h1>
     <BaseDataIterator :items="getItems('tournaments')" :createNewButton="false" />
   </div>
 </template>

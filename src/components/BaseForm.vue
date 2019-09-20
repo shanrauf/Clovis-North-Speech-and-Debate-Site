@@ -32,15 +32,10 @@
               v-on="on"
             ></v-text-field>
           </template>
-          <v-date-picker v-model="date" no-title @input="menu1 = false" show-current="2019-09-17"></v-date-picker>
+          <v-date-picker v-model="date" no-title @input="menu1 = false" show-current></v-date-picker>
         </v-menu>
 
-        <v-text-field
-          v-model="description"
-          :rules="descriptionRules"
-          label="Description"
-          clearable
-        />
+        <v-text-field v-model="description" label="Description" clearable />
 
         <v-combobox
           v-model="location"
@@ -52,7 +47,7 @@
           single-line
         />
 
-        <div v-if="location">Image here</div>
+        <div v-if="image">Image here</div>
 
         <v-checkbox
           v-model="checkbox"
@@ -79,13 +74,13 @@ export default {
   },
   data() {
     return {
+      image: "",
       date: new Date().toISOString().substr(0, 10),
       menu1: false,
       valid: true,
       tournamentName: "",
       locationRules: [v => !!v || "Location is required"],
       description: "",
-      descriptionRules: [v => !!v || "Description is required"],
       select: null,
       location: "",
       tournamentNames: [
@@ -112,6 +107,7 @@ export default {
       ],
       locations: [
         "Clovis North High School",
+        "Bakersfield High School",
         "Granite Ridge Middle School",
         "Sanger High School",
         "Buchanan High School",
@@ -139,6 +135,7 @@ export default {
           description: this.description,
           location: this.location
         });
+        this.overlay = false;
       } else {
         this.$store.commit({
           type: "setSnackbar",
@@ -147,17 +144,6 @@ export default {
           enabled: true
         });
       }
-    }
-  },
-  computed: {
-    computedDateFormatted() {
-      return this.formatDate(this.date);
-    }
-  },
-
-  watch: {
-    date(val) {
-      this.dateFormatted = this.formatDate(this.date);
     }
   }
 };
