@@ -45,6 +45,7 @@ const getters = {
     });
   },
   getUpdatesOverlay: state => state.updatesOverlay,
+  getItems: state => itemsToGet => state[itemsToGet],
   getLastSeenUpdate: state => state.lastSeenUpdate,
   getUpdates: state => state.updates,
   getUser: state => state.user,
@@ -214,18 +215,12 @@ const actions = {
         }
       });
   },
-  async createTournaments({ commit, state }) {
+  async createTournaments({ commit }) {
     await database
-      .ref('tournaments/' + state.user.uid)
+      .ref('tournaments/')
       .once('value')
       .then(snap => {
         commit('setTournaments', snap.val());
-        commit({
-          type: 'setSnackbar',
-          color: 'success',
-          message: 'Successfully created an update!',
-          enabled: true
-        });
       });
   },
   async updateLastSeenUpdate({ commit, state }) {
@@ -238,41 +233,37 @@ const actions = {
       }
     });
   },
-  async onAddTournament({ commit, state }, payload) {
+  async onAddTournament({ commit }, payload) {
     let now = Date.now();
-    await database
-      .ref('tournaments/' + state.user.uid + '/' + payload.timestamp)
-      .set(
-        {
-          name: payload.name,
-          description: payload.name,
-          location: payload.location
-        },
-        error => {
-          if (error) {
-            console.error(error);
-          } else {
-            commit({
-              type: 'updateLocalTournaments',
-              title: payload.title,
-              text: payload.text,
-              updateType: payload.updateType,
-              now: now
-            });
-            commit({
-              type: 'setSnackbar',
-              color: 'success',
-              message: 'Successfully created an update!',
-              enabled: true
-            });
-          }
+    await database.ref('tournaments/' + payload.timestamp).set(
+      {
+        name: payload.name,
+        description: payload.name,
+        location: payload.location
+      },
+      error => {
+        if (error) {
+          console.error(error);
+        } else {
+          commit({
+            type: 'updateLocalTournaments',
+            title: payload.title,
+            text: payload.text,
+            updateType: payload.updateType,
+            now: now
+          });
+          commit({
+            type: 'setSnackbar',
+            color: 'success',
+            message: 'Successfully created an update!',
+            enabled: true
+          });
         }
-      );
+      }
+    );
   },
   async onDeleteTournament({ commit }, payload) {
-    let ref = database.ref(
-      'tournaments/' + state.user.uid + '/' + payload.timestamp
-    );
+    let ref = database.ref('tournaments/' + payload.timestamp);
     await ref
       .remove()
       .then(() => {
@@ -303,6 +294,13 @@ const mutations = {
   updateLocalLastSeenUpdate(state, timestamp) {
     state.user.lastSeenUpdate = timestamp;
   },
+  setUpdates(state, updates) {
+    let updatesArray = Object.keys(updates).map(key => ({
+      key: key,
+      value: updates[key]
+    }));
+    state.updates = updatesArray;
+  },
   updateLocalUpdates(state, payload) {
     state.updates.push({
       key: payload.now,
@@ -313,22 +311,16 @@ const mutations = {
       }
     });
   },
-  updateLocalTournaments(state, payload) {
-    state.tournaments = payload; // do something here
-  },
-  setUpdates(state, updates) {
-    if (!updates) {
-      state.updates = [];
-    } else {
-      let updatesArray = Object.keys(updates).map(key => ({
-        key: key,
-        value: updates[key]
-      }));
-      state.updates = updatesArray.reverse();
-    }
-  },
   setTournaments(state, tournaments) {
-    state.tournaments = tournaments; // probably
+    if (!tournaments) {
+      state.tournaments = [];
+    } else {
+      let tournamentsArray = Object.keys(tournaments).map(key => ({
+        key: key,
+        value: tournaments[key]
+      }));
+      state.tournaments = tournamentsArray.reverse();
+    }
   },
   setUser(state, user) {
     state.user = user;

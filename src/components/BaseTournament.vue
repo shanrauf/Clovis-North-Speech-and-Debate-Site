@@ -4,12 +4,12 @@
     <v-icon class="edit-icon-corner" @click="formOverlay = true">$vuetify.icons.edit</v-icon>
     <v-img class="card-image white--text" height="200px" src="../assets/images/clovisnorthHS.jpg">
       <v-card-title class="align-end fill-height">
-        <span class="card-title">Example Speech/Debate Tournament</span>
+        <span class="card-title">{{item.value.name}}</span>
       </v-card-title>
     </v-img>
 
     <v-card-text>
-      <span>September 12, 2019</span>
+      <span>{{formatTimestamp(parseInt(item.key))}}</span>
       <br />
       <span class="text--primary">
         <span>Clovis North High School</span>
@@ -33,11 +33,53 @@
 
 <script>
 export default {
+  props: {
+    item: {
+      type: Object,
+      required: true
+    }
+  },
   data() {
     return {
       confirmOverlay: false,
-      formOverlay: false // find way to open form filled out w correct tournament info
+      formOverlay: false, // find way to open form filled out w correct tournament info
+      months_arr: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ]
     };
+  },
+  methods: {
+    formatTimestamp(timestamp) {
+      let currentTime = Date.now();
+      let timeDifference = currentTime - timestamp;
+      if (timeDifference < 86400000) {
+        return "Today";
+      }
+      if (timeDifference > 86400000 && timeDifference < 172800000) {
+        return "Yesterday";
+      }
+      timestamp = new Date(timestamp);
+      let year = timestamp.getFullYear();
+      let month = this.months_arr[timestamp.getMonth()];
+      let day = timestamp.getDate();
+      let strTime = timestamp
+        .toLocaleTimeString()
+        .replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
+      // MM dd, yyyy hh:mm AM/PM format
+      let formattedTime = month + " " + day + ", " + year + " " + strTime;
+      return formattedTime;
+    }
   }
 };
 </script>

@@ -3,8 +3,8 @@
     <v-row align="center" justify="center">
       <v-col cols="7">
         <v-select
-          v-model="webpage"
-          :items="webpages"
+          v-model="currentComponent"
+          :items="editableComponents"
           :menu-props="{ bottom: true, offsetY: true }"
           label="Select which page to edit"
         ></v-select>
@@ -13,7 +13,7 @@
 
     <br />
 
-    <BaseDataIterator v-if="webpage" :webpage="webpage" :createNewButton="true" />
+    <BaseDataIterator v-if="currentComponent" :items="getData()" :createNewButton="true" />
   </v-container>
   <!-- <div class="form-container">
     <BaseForm />
@@ -32,14 +32,14 @@ export default {
   },
   data() {
     return {
-      webpage: "",
-      webpages: [
-        "Home",
+      currentComponent: "",
+      editableComponents: [
+        "Slideshow",
         "Tournaments",
         "Calendar",
         "Sponsors",
         "Announcements",
-        "About Us"
+        "AboutPage"
       ]
     };
   },
@@ -59,7 +59,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["getUser", "checkAuth"])
+    ...mapGetters(["getUser", "checkAuth", "getItems"])
+  },
+  methods: {
+    getData() {
+      this.$store.dispatch("create" + this.currentComponent);
+      return this.getItems("tournaments");
+    }
   }
 };
 </script>

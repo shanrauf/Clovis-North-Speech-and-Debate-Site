@@ -126,16 +126,20 @@ export default {
     },
     processForm() {
       if (this.$refs.form.validate()) {
-        // this.$store.dispatch({
-        //   type: "onAddTournament",
-        //   name: this.tournamentName,
-        //   timestamp: new Date(this.date).getTime() / 1000,
-        //   description: this.description,
-        //   location: this.location
-        // });
-        console.log("test");
+        this.$store.dispatch({
+          type: "onAddTournament",
+          name: this.tournamentName,
+          timestamp: new Date(this.date).getTime() / 1000,
+          description: this.description,
+          location: this.location
+        });
       } else {
-        console.log("Failed");
+        this.$store.commit({
+          type: "setSnackbar",
+          color: "error",
+          message: "There was an error...",
+          enabled: true
+        });
       }
     }
   },
