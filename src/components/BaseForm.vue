@@ -2,11 +2,11 @@
   <v-row justify="center">
     <v-card class="ma-3 pa-6" width="450px" height="450px">
       <v-form ref="form" v-model="valid" lazy-validation>
-        <v-autocomplete
+        <v-combobox
           v-model="tournamentName"
           :items="tournamentNames"
           label="Tournament Name"
-          :rules="tournamentNameRules"
+          @blur="findImageFromTournamentName"
           hide-no-data
           hide-selected
           single-line
@@ -42,7 +42,7 @@
           clearable
         />
 
-        <v-autocomplete
+        <v-combobox
           v-model="location"
           :items="locations"
           label="Location"
@@ -51,6 +51,8 @@
           hide-selected
           single-line
         />
+
+        <div v-if="location">Image here</div>
 
         <v-checkbox
           v-model="checkbox"
@@ -81,7 +83,6 @@ export default {
       menu1: false,
       valid: true,
       tournamentName: "",
-      tournamentNameRules: [v => !!v || "Tournament name is required"],
       locationRules: [v => !!v || "Location is required"],
       description: "",
       descriptionRules: [v => !!v || "Description is required"],
@@ -115,7 +116,9 @@ export default {
         "Sanger High School",
         "Buchanan High School",
         "Chowchilla High School",
-        "Bullard High School"
+        "Bullard High School",
+        "Orosi High School",
+        "Clovis East High School"
       ],
       checkbox: false
     };
@@ -123,6 +126,9 @@ export default {
   methods: {
     reset() {
       this.$refs.form.reset();
+    },
+    findImageFromTournamentName() {
+      // look for img name
     },
     processForm() {
       if (this.$refs.form.validate()) {

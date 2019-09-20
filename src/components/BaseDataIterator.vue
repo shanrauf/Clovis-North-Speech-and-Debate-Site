@@ -1,6 +1,12 @@
 <template>
   <v-container fluid>
-    <v-data-iterator :page="page" :items="items" :items-per-page="itemsPerPage" hide-default-footer>
+    <v-data-iterator
+      loading
+      :page="page"
+      :items="items"
+      :items-per-page="itemsPerPage"
+      hide-default-footer
+    >
       <template v-slot:default="props">
         <v-row wrap>
           <v-col v-if="page == 1 && createNewButton" cols="12" sm="6" md="4" lg="3">
@@ -13,7 +19,7 @@
       </template>
     </v-data-iterator>
     <div class="text-center">
-      <v-pagination v-model="page" :length="6"></v-pagination>
+      <v-pagination v-if="showPagination" v-model="page" :length="numberOfPages" circle></v-pagination>
     </div>
   </v-container>
 </template>
@@ -49,6 +55,18 @@ export default {
         return 7;
       } else {
         return 8;
+      }
+    },
+    numberOfPages() {
+      return Math.ceil(this.items.length / this.itemsPerPage);
+    },
+    showPagination() {
+      if (this.items.length > 7 && createNewButton) {
+        return true;
+      } else if (this.items.length > 8) {
+        return true;
+      } else {
+        return false;
       }
     }
   }
