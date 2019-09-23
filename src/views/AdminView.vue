@@ -39,7 +39,7 @@ export default {
         "Calendar",
         "Sponsors",
         "Announcements",
-        "AboutPage"
+        "About"
       ]
     };
   },

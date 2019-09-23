@@ -4,13 +4,22 @@
       <template slot="front">
         <v-card class="tournament-card mx-auto" max-width="450" height="350px" raised>
           <div v-if="$route.path.includes('/admin')">
-            <v-icon class="close-icon-corner" @click="confirmOverlay = true">$vuetify.icons.close</v-icon>
-            <v-icon class="edit-icon-corner" @click="editOverlay = true">$vuetify.icons.edit</v-icon>
+            <v-icon
+              color="white"
+              class="close-icon-corner"
+              @click="confirmOverlay = true"
+            >$vuetify.icons.close</v-icon>
+            <v-icon
+              color="white"
+              class="edit-icon-corner"
+              @click="editOverlay = true"
+            >$vuetify.icons.edit</v-icon>
           </div>
           <v-img
             class="card-image white--text"
+            :key="imageUrl"
             height="200px"
-            :src="locationImg"
+            :src="imageUrl"
             gradient="to top right, rgba(25,118,210,.8), rgba(25,32,72,.7)"
             transition="fade-transition"
           >
@@ -97,7 +106,7 @@
       </template>
     </FlipCard>
     <v-overlay :value="editOverlay">
-      <BaseForm :locationImg="locationImg" :overlay.sync="editOverlay" :tournament="tournament" />
+      <BaseForm :imageUrl.sync="imageUrl" :overlay.sync="editOverlay" :tournament="tournament" />
     </v-overlay>
   </div>
 </template>
@@ -118,9 +127,9 @@ export default {
   },
   data() {
     return {
+      imageUrl: "",
       editOverlay: false,
       flipped: false,
-      locationImg: "",
       confirmOverlay: false,
       formOverlay: false, // find way to open form filled out w correct tournament info
       months_arr: [
@@ -140,10 +149,14 @@ export default {
     };
   },
   created() {
-    let formattedName = this.tournament.value.location.replace(" ", "%20");
-    let baseUrl =
+    this.baseUrl =
       "https://firebasestorage.googleapis.com/v0/b/clovisnorthforensics-aaeaa.appspot.com/o/images%2F";
-    this.locationImg = `${baseUrl}${formattedName}.jpg?alt=media`;
+    this.imageUrl = `${this.baseUrl}${this.formattedLocation}.jpg?alt=media`;
+  },
+  computed: {
+    formattedLocation() {
+      return this.tournament.value.location.replace(" ", "%20");
+    }
   },
   methods: {
     formatTimestamp(timestamp) {

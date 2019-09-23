@@ -1,12 +1,6 @@
 <template>
   <v-container fluid>
-    <v-data-iterator
-      loading
-      :page="page"
-      :items="items"
-      :items-per-page="itemsPerPage"
-      hide-default-footer
-    >
+    <v-data-iterator :page="page" :items="items" :items-per-page="itemsPerPage" hide-default-footer>
       <template v-slot:default="props">
         <v-row wrap>
           <v-col v-if="page == 1 && createNewButton" cols="12" sm="6" md="4" lg="3">
@@ -16,6 +10,11 @@
             <BaseTournament :tournament="item" />
           </v-col>
         </v-row>
+      </template>
+
+      <template v-slot:no-data>
+        <v-alert color="primary" icon="info">Create a tournament below:</v-alert>
+        <BaseCreateNewCard />
       </template>
     </v-data-iterator>
 

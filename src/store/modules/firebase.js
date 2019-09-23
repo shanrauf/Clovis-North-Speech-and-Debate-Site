@@ -237,12 +237,11 @@ const actions = {
       }
     });
   },
-  async onAddTournament({ commit }, payload) {
-    console.log(payload.timestamp);
+  async onUpdateTournament({ commit }, payload) {
     await database.ref('tournaments/' + payload.timestamp).set(
       {
         name: payload.name,
-        description: payload.name,
+        description: payload.description,
         location: payload.location
       },
       error => {
@@ -254,11 +253,16 @@ const actions = {
             enabled: true
           });
         } else {
-          commit('addLocalTournament', payload);
+          if (payload.mode == 'create') {
+            commit('addLocalTournament', payload);
+          } else if (payload.mode == 'edit') {
+            commit('deleteLocalTournament', payload.oldTimestamp);
+            commit('addLocalTournament', payload);
+          }
           commit({
             type: 'setSnackbar',
             color: 'success',
-            message: 'Successfully added a tournament!',
+            message: `Successfully ${payload.mode}ed a tournament!`,
             enabled: true
           });
         }
@@ -284,6 +288,23 @@ const actions = {
           type: 'setSnackbar',
           color: 'error',
           message: 'There was an error...',
+          enabled: true
+        });
+      });
+  },
+  async uploadImage({ commit }, payload) {
+    let metadata = {
+      contentType: 'image/jpeg',
+      name: `${payload.location}.jpg`
+    };
+    await storageRef
+      .child(`images/${payload.location}.jpg`)
+      .put(payload.imageFile, metadata)
+      .then(() => {
+        commit({
+          type: 'setSnackbar',
+          color: 'success',
+          message: `Successfully uploaded ${payload.imageFile.name}. It might take awhile to see your changes.`,
           enabled: true
         });
       });

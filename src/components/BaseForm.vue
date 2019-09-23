@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-card class="pa-4" width="450px" height="650px">
+    <v-card class="pa-4" width="450px" height="700px">
       <v-form ref="form" v-model="valid" lazy-validation>
         <h1>
           {{mode.charAt(0).toUpperCase() + mode.slice(1)}}
@@ -12,7 +12,6 @@
           v-model="tournamentName"
           :items="tournamentNames"
           label="Tournament Name"
-          @blur="findImageFromTournamentName"
           hide-no-data
           hide-selected
           single-line
@@ -62,7 +61,20 @@
           prepend-icon="$vuetify.icons.directions"
         />
 
-        <v-img :src="locationImg" width="200" height="100"></v-img>
+        <v-img :key="imageUrl" v-if="location" loading :src="image" width="200" height="100"></v-img>
+
+        <v-file-input
+          v-if="location"
+          v-model="imageFile"
+          :rules="imageInputRules"
+          accept="image/jpeg"
+          placeholder="Select an image"
+          prepend-icon="$vuetify.icons.camera"
+          label="Location photo"
+          persistent-hint
+          hint="This photo will override the existing photo for the selected location"
+          @change="updateImage()"
+        />
 
         <v-checkbox
           v-model="checkbox"
@@ -90,20 +102,29 @@ export default {
       type: Object,
       required: false
     },
-    locationImg: {
+    imageUrl: {
       type: String,
       required: false
     }
   },
   data() {
     return {
+      imageFile: null,
       mode: "create",
-      image: "",
+      baseUrl:
+        "https://firebasestorage.googleapis.com/v0/b/clovisnorthforensics-aaeaa.appspot.com/o/images%2F",
       date: new Date().toISOString().substr(0, 10),
       menu1: false,
       valid: true,
+      oldTimestamp: 0,
       tournamentName: "",
       locationRules: [v => !!v || "Location is required"],
+      imageInputRules: [
+        value =>
+          !value ||
+          value.size < 4000000 ||
+          "Image size should be less than 4 MB!"
+      ],
       description: "",
       select: null,
       location: "",
@@ -150,26 +171,46 @@ export default {
       this.tournamentName = this.tournament.value.name;
       this.description = this.tournament.value.description;
       this.location = this.tournament.value.location;
+      this.image = this.locationImg;
+      this.oldTimestamp = this.tournament.key;
+      this.date = new Date(parseInt(this.oldTimestamp))
+        .toISOString()
+        .substr(0, 10);
+    }
+  },
+  computed: {
+    formattedLocation() {
+      return this.location.replace(" ", "%20");
+    },
+    locationImg() {
+      return `${this.baseUrl}${this.formattedLocation}.jpg?alt=media`;
     }
   },
   methods: {
     reset() {
       this.$refs.form.reset();
     },
-    findImageFromTournamentName() {
-      // look for img name
+    updateImage() {
+      this.image = URL.createObjectURL(this.imageFile);
     },
     processForm() {
       if (this.$refs.form.validate()) {
-        formattedMode = "capitalize moode, then create vuex action for it";
         this.$store.dispatch({
-          type: "onAddTournament",
+          type: "onUpdateTournament",
           name: this.tournamentName,
-          timestamp: new Date(this.date).getTime(),
+          timestamp: new Date(this.date + "T07:00:00Z").getTime(),
+          oldTimestamp: this.oldTimestamp,
           description: this.description,
           location: this.location,
           mode: this.mode
         });
+        this.$store.dispatch({
+          type: "uploadImage",
+          imageFile: this.imageFile,
+          location: this.location // used to rename file
+        });
+        this.$emit("update:overlay", false);
+        this.$emit("update:imageUrl", this.image);
       }
     }
   }
