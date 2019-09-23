@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="{'tournament-overlay': oldTournament}">
     <FlipCard :flipped="flipped">
       <template slot="front">
         <v-card class="tournament-card mx-auto" max-width="450" height="350px" raised>
@@ -185,6 +185,13 @@ export default {
     onDeleteTournament() {
       this.$store.dispatch("onDeleteTournament", this.tournament);
       this.confirmOverlay = false;
+    },
+    oldTournament() {
+      if (this.formatTimestamp(parseInt(tournament.key)) > 172800000) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 };
@@ -214,5 +221,12 @@ export default {
 }
 .card-description {
   overflow: auto;
+}
+.tournament-overlay {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: gray; /* IE 6-9 */
 }
 </style>
