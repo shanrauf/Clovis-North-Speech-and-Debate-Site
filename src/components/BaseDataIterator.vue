@@ -12,7 +12,7 @@
           <v-col v-if="page == 1 && createNewButton" cols="12" sm="6" md="4" lg="3">
             <BaseCreateNewCard />
           </v-col>
-          <v-col v-for="item in props.items" :key="item.value.name" cols="12" sm="6" md="4" lg="3">
+          <v-col v-for="(item, i) in props.items" :key="i" cols="12" sm="6" md="4" lg="3">
             <BaseTournament :item="item" />
           </v-col>
         </v-row>

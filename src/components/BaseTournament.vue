@@ -36,7 +36,16 @@
 
           <v-tooltip bottom>
             <template v-slot:activator="{ on }">
-              <v-btn v-on="on" class="mx-2" fab dark small color="success">
+              <v-btn
+                v-on="on"
+                class="mx-2"
+                fab
+                dark
+                small
+                color="success"
+                :href="formatDirections()"
+                target="_blank"
+              >
                 <v-icon>$vuetify.icons.directions</v-icon>
               </v-btn>
             </template>
@@ -49,7 +58,7 @@
           <v-card-title>{{`Are you sure you want to delete ${item.value.name}?`}}</v-card-title>
           <v-card-text>This action cannot be undone...</v-card-text>
           <v-card-actions>
-            <v-btn color="primary" @click="confirmOverlay = false">Yes</v-btn>
+            <v-btn @click="onDeleteTournament">Yes</v-btn>
             <v-btn color="error" @click="confirmOverlay = false">No</v-btn>
           </v-card-actions>
         </v-card>
@@ -75,7 +84,7 @@
         <v-card-text>{{item.value.description}}</v-card-text>
 
         <v-card-actions>
-          <v-btn text color="primary" @click="flipped = !flipped">Back</v-btn>
+          <v-btn color="primary" @click="flipped = !flipped">Back</v-btn>
         </v-card-actions>
       </v-card>
     </template>
@@ -135,6 +144,13 @@ export default {
       // MM dd, yyyy hh:mm AM/PM format
       let formattedTime = month + " " + day + ", " + year + " " + strTime;
       return formattedTime;
+    },
+    formatDirections() {
+      return "https://google.com/maps/search/" + this.item.value.location;
+    },
+    onDeleteTournament() {
+      this.$store.dispatch("onDeleteTournament", this.item);
+      this.confirmOverlay = false;
     }
   }
 };

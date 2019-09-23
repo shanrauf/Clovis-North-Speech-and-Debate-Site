@@ -238,6 +238,7 @@ const actions = {
     });
   },
   async onAddTournament({ commit }, payload) {
+    console.log(payload.timestamp);
     await database.ref('tournaments/' + payload.timestamp).set(
       {
         name: payload.name,
@@ -264,18 +265,18 @@ const actions = {
       }
     );
   },
-  async onDeleteTournament({ commit }, payload) {
-    let ref = database.ref('tournaments/' + payload.timestamp);
+  async onDeleteTournament({ commit }, item) {
+    let ref = database.ref('tournaments/' + item.key);
     await ref
       .remove()
       .then(() => {
+        commit('deleteLocalTournament', item.key);
         commit({
           type: 'setSnackbar',
           color: 'success',
-          message: 'Successfully deleted a tournament!',
+          message: 'Successfully deleted ' + item.value.name,
           enabled: true
         });
-        commit('deleteLocalTournament', payload);
       })
       .catch(error => {
         console.log(error);
@@ -322,6 +323,12 @@ const mutations = {
         description: payload.description
       }
     });
+  },
+  deleteLocalTournament(state, timestamp) {
+    let idx = state.tournaments.findIndex(tournament => {
+      tournament.key == timestamp;
+    });
+    state.tournaments.splice(idx, idx + 1);
   },
   setTournaments(state, tournaments) {
     if (!tournaments) {

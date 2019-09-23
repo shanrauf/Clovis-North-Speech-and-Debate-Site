@@ -131,11 +131,11 @@ export default {
         this.$store.dispatch({
           type: "onAddTournament",
           name: this.tournamentName,
-          timestamp: new Date(this.date).getTime() / 1000,
+          timestamp: new Date(this.date).getTime(),
           description: this.description,
           location: this.location
         });
-        this.overlay = false;
+        this.$emit("update:overlay", false);
       } else {
         this.$store.commit({
           type: "setSnackbar",
