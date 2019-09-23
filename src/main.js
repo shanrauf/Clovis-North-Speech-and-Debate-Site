@@ -20,6 +20,8 @@ const opts = {
       camera: 'camera_alt',
       highlight: 'border_color',
       directions: 'directions',
+      comment: 'comment',
+      title: 'title',
       star: 'star',
       stats: 'bar_chart',
       students: 'supervisor_account',

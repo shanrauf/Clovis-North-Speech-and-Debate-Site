@@ -1,111 +1,126 @@
 <template>
-  <FlipCard :flipped="flipped">
-    <template slot="front">
-      <v-card class="tournament-card mx-auto" max-width="450" height="350px" raised>
-        <div v-if="$route.path.includes('/admin')">
-          <v-icon class="close-icon-corner" @click="confirmOverlay = true">$vuetify.icons.close</v-icon>
-          <v-icon class="edit-icon-corner" @click="formOverlay = true">$vuetify.icons.edit</v-icon>
-        </div>
-        <v-img
-          class="card-image white--text"
-          height="200px"
-          src="../assets/images/Clovis North High School.jpg"
-        >
-          <v-card-title class="align-end fill-height">
-            <span class="card-title">{{item.value.name}}</span>
-          </v-card-title>
-        </v-img>
+  <div>
+    <FlipCard :flipped="flipped">
+      <template slot="front">
+        <v-card class="tournament-card mx-auto" max-width="450" height="350px" raised>
+          <div v-if="$route.path.includes('/admin')">
+            <v-icon class="close-icon-corner" @click="confirmOverlay = true">$vuetify.icons.close</v-icon>
+            <v-icon class="edit-icon-corner" @click="editOverlay = true">$vuetify.icons.edit</v-icon>
+          </div>
+          <v-img
+            class="card-image white--text"
+            height="200px"
+            :src="locationImg"
+            gradient="to top right, rgba(25,118,210,.8), rgba(25,32,72,.7)"
+            transition="fade-transition"
+          >
+            <v-card-title class="align-end fill-height">
+              <span class="card-title">{{tournament.value.name}}</span>
+            </v-card-title>
+          </v-img>
 
-        <v-card-text>
-          <span>{{formatTimestamp(parseInt(item.key))}}</span>
-          <br />
-          <span class="text--primary">
-            <span>{{item.value.location}}</span>
-          </span>
-        </v-card-text>
+          <v-card-text>
+            <span>{{formatTimestamp(parseInt(tournament.key))}}</span>
+            <br />
+            <span class="text--primary">
+              <span>{{tournament.value.location}}</span>
+            </span>
+          </v-card-text>
 
-        <v-card-actions>
-          <v-btn v-if="item.value.description" color="primary" @click="flipped = !flipped">More Info</v-btn>
-          <v-btn
-            v-if="item.value.results"
-            color="orange"
-            @click="confirmOverlay = !confirmOverlay"
-          >Results</v-btn>
-
-          <div class="flex-grow-1" />
-
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on }">
-              <v-btn
-                v-on="on"
-                class="mx-2"
-                fab
-                dark
-                small
-                color="success"
-                :href="formatDirections()"
-                target="_blank"
-              >
-                <v-icon>$vuetify.icons.directions</v-icon>
-              </v-btn>
-            </template>
-            <span>Directions</span>
-          </v-tooltip>
-        </v-card-actions>
-      </v-card>
-      <v-overlay :value="confirmOverlay">
-        <v-card>
-          <v-card-title>{{`Are you sure you want to delete ${item.value.name}?`}}</v-card-title>
-          <v-card-text>This action cannot be undone...</v-card-text>
           <v-card-actions>
-            <v-btn @click="onDeleteTournament">Yes</v-btn>
-            <v-btn color="error" @click="confirmOverlay = false">No</v-btn>
+            <v-btn
+              v-if="tournament.value.description"
+              color="primary"
+              @click="flipped = !flipped"
+            >More Info</v-btn>
+            <v-btn
+              v-if="tournament.value.results"
+              color="orange"
+              @click="confirmOverlay = !confirmOverlay"
+            >Results</v-btn>
+
+            <div class="flex-grow-1" />
+
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on }">
+                <v-btn
+                  v-on="on"
+                  class="mx-2"
+                  fab
+                  dark
+                  small
+                  color="success"
+                  :href="formatDirections()"
+                  target="_blank"
+                >
+                  <v-icon>$vuetify.icons.directions</v-icon>
+                </v-btn>
+              </template>
+              <span>Directions</span>
+            </v-tooltip>
           </v-card-actions>
         </v-card>
-      </v-overlay>
-    </template>
-    <template slot="back">
-      <v-card
-        class="mx-auto card-description"
-        max-width="450px"
-        height="350px"
-        max-height="350px"
-        raised
-      >
-        <div v-if="$route.path.includes('/admin')">
-          <v-icon class="close-icon-corner" @click="confirmOverlay = true">$vuetify.icons.close</v-icon>
-          <v-icon class="edit-icon-corner" @click="formOverlay = true">$vuetify.icons.edit</v-icon>
-        </div>
+        <v-overlay :value="confirmOverlay">
+          <v-card>
+            <v-card-title>{{`Are you sure you want to delete ${tournament.value.name}?`}}</v-card-title>
+            <v-card-text>This action cannot be undone...</v-card-text>
+            <v-card-actions>
+              <v-btn @click="onDeleteTournament">Yes</v-btn>
+              <v-btn color="error" @click="confirmOverlay = false">No</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-overlay>
+      </template>
+      <template slot="back">
+        <v-card
+          class="mx-auto card-description"
+          max-width="450px"
+          height="350px"
+          max-height="350px"
+          raised
+        >
+          <div v-if="$route.path.includes('/admin')">
+            <v-icon class="close-icon-corner" @click="confirmOverlay = true">$vuetify.icons.close</v-icon>
+            <v-icon class="edit-icon-corner" @click="formOverlay = true">$vuetify.icons.edit</v-icon>
+          </div>
 
-        <v-card-title>
-          <span>{{item.value.name}}</span>
-        </v-card-title>
+          <v-card-title>
+            <span>{{tournament.value.name}}</span>
+          </v-card-title>
 
-        <v-card-text>{{item.value.description}}</v-card-text>
+          <v-card-text>{{tournament.value.description}}</v-card-text>
 
-        <v-card-actions>
-          <v-btn color="primary" @click="flipped = !flipped">Back</v-btn>
-        </v-card-actions>
-      </v-card>
-    </template>
-  </FlipCard>
+          <v-card-actions>
+            <v-btn color="primary" @click="flipped = !flipped">Back</v-btn>
+          </v-card-actions>
+        </v-card>
+      </template>
+    </FlipCard>
+    <v-overlay :value="editOverlay">
+      <BaseForm :locationImg="locationImg" :overlay.sync="editOverlay" :tournament="tournament" />
+    </v-overlay>
+  </div>
 </template>
 
 <script>
 import FlipCard from "@/components/FlipCard.vue";
+import BaseForm from "@/components/BaseForm.vue";
 export default {
   props: {
-    item: {
+    tournament: {
       type: Object,
       required: true
     }
   },
   components: {
-    FlipCard
+    FlipCard,
+    BaseForm
   },
   data() {
     return {
+      editOverlay: false,
       flipped: false,
+      locationImg: "",
       confirmOverlay: false,
       formOverlay: false, // find way to open form filled out w correct tournament info
       months_arr: [
@@ -123,6 +138,12 @@ export default {
         "Dec"
       ]
     };
+  },
+  created() {
+    let formattedName = this.tournament.value.location.replace(" ", "%20");
+    let baseUrl =
+      "https://firebasestorage.googleapis.com/v0/b/clovisnorthforensics-aaeaa.appspot.com/o/images%2F";
+    this.locationImg = `${baseUrl}${formattedName}.jpg?alt=media`;
   },
   methods: {
     formatTimestamp(timestamp) {
@@ -146,10 +167,10 @@ export default {
       return formattedTime;
     },
     formatDirections() {
-      return "https://google.com/maps/search/" + this.item.value.location;
+      return "https://google.com/maps/search/" + this.tournament.value.location;
     },
     onDeleteTournament() {
-      this.$store.dispatch("onDeleteTournament", this.item);
+      this.$store.dispatch("onDeleteTournament", this.tournament);
       this.confirmOverlay = false;
     }
   }

@@ -13,7 +13,7 @@
             <BaseCreateNewCard />
           </v-col>
           <v-col v-for="(item, i) in props.items" :key="i" cols="12" sm="6" md="4" lg="3">
-            <BaseTournament :item="item" />
+            <BaseTournament :tournament="item" />
           </v-col>
         </v-row>
       </template>
