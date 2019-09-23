@@ -3,10 +3,10 @@
     <v-card class="pa-4" width="450px" height="700px">
       <v-form ref="form" v-model="valid" lazy-validation>
         <h1>
-          {{mode.charAt(0).toUpperCase() + mode.slice(1)}}
+          {{ mode.charAt(0).toUpperCase() + mode.slice(1) }}
           <span
             v-if="tournament"
-          >{{tournament.value.name}}</span>
+          >{{ tournament.value.name }}</span>
         </h1>
         <v-combobox
           v-model="tournamentName"
@@ -38,7 +38,7 @@
               v-on="on"
             ></v-text-field>
           </template>
-          <v-date-picker v-model="date" no-title @input="menu1 = false" show-current></v-date-picker>
+          <v-date-picker v-model="date" no-title show-current @input="menu1 = false"></v-date-picker>
         </v-menu>
 
         <v-textarea
@@ -61,7 +61,7 @@
           prepend-icon="$vuetify.icons.directions"
         />
 
-        <v-img :key="imageUrl" v-if="location" loading :src="image" width="200" height="100"></v-img>
+        <v-img v-if="location" :key="imageUrl" loading :src="image" width="200" height="100"></v-img>
 
         <v-file-input
           v-if="location"
@@ -165,6 +165,14 @@ export default {
       checkbox: false
     };
   },
+  computed: {
+    formattedLocation() {
+      return this.location.replace(" ", "%20");
+    },
+    locationImg() {
+      return `${this.baseUrl}${this.formattedLocation}.jpg?alt=media`;
+    }
+  },
   created() {
     if (this.tournament) {
       this.mode = "edit"; // Tells Vuex to update entries, not create new entry
@@ -176,14 +184,6 @@ export default {
       this.date = new Date(parseInt(this.oldTimestamp))
         .toISOString()
         .substr(0, 10);
-    }
-  },
-  computed: {
-    formattedLocation() {
-      return this.location.replace(" ", "%20");
-    },
-    locationImg() {
-      return `${this.baseUrl}${this.formattedLocation}.jpg?alt=media`;
     }
   },
   methods: {

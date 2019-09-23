@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container-fluid" id="sponsors">
+    <div id="sponsors" class="container-fluid">
       <h1>
         <strong>Sponsor Clovis North Forensics</strong>
       </h1>
@@ -29,7 +29,7 @@
     </div>
     <!-- Contact Us Form -->
     <div>
-      <div class="container-fluid" id="contact-us">
+      <div id="contact-us" class="container-fluid">
         <div class="col-md-6 col-md-offset-3">
           <div class="contact-title">
             <h2>Sponsorship Form</h2>
@@ -39,14 +39,14 @@
           <form name="sponsorship" method="POST" netlify>
             <div class="col-sm-6 form-group">
               <label for="companyName">Company Name:</label>
-              <input type="text" class="form-control" id="email" name="Company Name" maxlength="50" />
+              <input id="email" type="text" class="form-control" name="Company Name" maxlength="50" />
             </div>
             <div class="col-sm-6 form-group">
               <label for="email">E-mail:</label>
               <input
+                id="phone"
                 type="tel"
                 class="form-control"
-                id="phone"
                 name="email"
                 required
                 maxlength="50"
@@ -57,9 +57,9 @@
               <div class="col-sm-12 form-group">
                 <label for="name">Message:</label>
                 <textarea
+                  id="message"
                   class="form-control"
                   type="textarea"
-                  id="message"
                   name="message"
                   placeholder="Your Message Here"
                   maxlength="6000"

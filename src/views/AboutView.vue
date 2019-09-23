@@ -26,7 +26,7 @@
       <br />
 
       <v-layout wrap>
-        <v-flex class="flex-wrap" v-for="event in speechEvents" :key="event.name">
+        <v-flex v-for="event in speechEvents" :key="event.name" class="flex-wrap">
           <v-card
             elevation="10"
             raised
@@ -37,8 +37,8 @@
             class="mx-auto"
           >
             <div class="about-summary">
-              <h1 class="display-2 font-weight-thin">{{event.name}}</h1>
-              <p class="subheading">{{event.description}}</p>
+              <h1 class="display-2 font-weight-thin">{{ event.name }}</h1>
+              <p class="subheading">{{ event.description }}</p>
             </div>
           </v-card>
         </v-flex>
@@ -53,7 +53,7 @@
       <br />
 
       <v-layout wrap>
-        <v-flex class="flex-wrap" v-for="event in debateEvents" :key="event.name">
+        <v-flex v-for="event in debateEvents" :key="event.name" class="flex-wrap">
           <v-card
             elevation="10"
             raised
@@ -64,8 +64,8 @@
             class="mx-auto"
           >
             <div class="about-summary">
-              <h1 class="display-2 font-weight-thin">{{event.name}}</h1>
-              <p class="subheading">{{event.description}}</p>
+              <h1 class="display-2 font-weight-thin">{{ event.name }}</h1>
+              <p class="subheading">{{ event.description }}</p>
             </div>
           </v-card>
         </v-flex>

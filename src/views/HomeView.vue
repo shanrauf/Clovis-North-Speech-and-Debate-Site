@@ -5,7 +5,7 @@
     <br />
 
     <h1 align="center">Upcoming Tournaments</h1>
-    <BaseDataIterator :items="getItems('tournaments')" :createNewButton="false" />
+    <BaseDataIterator :items="getItems('tournaments')" :create-new-button="false" />
   </div>
 </template>
 <script>
@@ -18,11 +18,11 @@ export default {
     BaseCarousel,
     BaseDataIterator
   },
-  beforeCreate() {
-    this.$store.dispatch("createTournaments");
-  },
   computed: {
     ...mapGetters(["getItems"])
+  },
+  beforeCreate() {
+    this.$store.dispatch("createTournaments");
   }
 };
 </script>

@@ -12,9 +12,9 @@
               <div class="col-sm-6 form-group">
                 <label for="name">First Name:</label>
                 <input
+                  id="firstname"
                   type="text"
                   class="form-control"
-                  id="firstname"
                   name="firstname"
                   maxlength="50"
                 />
@@ -22,9 +22,9 @@
               <div class="col-sm-6 form-group">
                 <label for="name">Last Name:</label>
                 <input
+                  id="lastname"
                   type="text"
                   class="form-control"
-                  id="lastname"
                   name="lastname"
                   maxlength="50"
                 />
@@ -33,20 +33,20 @@
             <div class="row">
               <div class="col-sm-6 form-group">
                 <label for="email">Email:</label>
-                <input type="text" class="form-control" id="email" name="email" maxlength="50" />
+                <input id="email" type="text" class="form-control" name="email" maxlength="50" />
               </div>
               <div class="col-sm-6 form-group">
                 <label for="phone">Phone:</label>
-                <input type="tel" class="form-control" id="phone" name="phone" maxlength="50" />
+                <input id="phone" type="tel" class="form-control" name="phone" maxlength="50" />
               </div>
             </div>
             <div class="row">
               <div class="col-sm-12 form-group">
                 <label for="name">Message:</label>
                 <textarea
+                  id="message"
                   class="form-control"
                   type="textarea"
-                  id="message"
                   name="message"
                   placeholder="Your Message Here"
                   maxlength="6000"

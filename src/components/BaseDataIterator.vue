@@ -30,6 +30,10 @@ import BaseCreateNewCard from "@/components/BaseCreateNewCard.vue";
 import BaseTournament from "@/components/BaseTournament.vue";
 
 export default {
+  components: {
+    BaseCreateNewCard,
+    BaseTournament
+  },
   props: {
     createNewButton: {
       type: Boolean,
@@ -39,10 +43,6 @@ export default {
       type: Array,
       required: true
     }
-  },
-  components: {
-    BaseCreateNewCard,
-    BaseTournament
   },
   data() {
     return {

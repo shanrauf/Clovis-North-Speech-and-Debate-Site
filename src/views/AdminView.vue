@@ -13,21 +13,16 @@
 
     <br />
 
-    <BaseDataIterator v-if="currentComponent" :items="getData()" :createNewButton="true" />
+    <BaseDataIterator v-if="currentComponent" :items="getData()" :create-new-button="true" />
   </v-container>
-  <!-- <div class="form-container">
-    <BaseForm />
-  </div>-->
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import BaseForm from "@/components/BaseForm.vue";
 import BaseDataIterator from "@/components/BaseDataIterator.vue";
 
 export default {
   components: {
-    BaseForm,
     BaseDataIterator
   },
   data() {
@@ -43,6 +38,9 @@ export default {
       ]
     };
   },
+  computed: {
+    ...mapGetters(["getUser", "checkAuth", "getItems", "checkItems"])
+  },
   created() {
     let currentUser = this.getUser;
     if (!currentUser) {
@@ -57,9 +55,6 @@ export default {
     } else {
       // this.$store.dispatch("createSomething", currentUser.uid);
     }
-  },
-  computed: {
-    ...mapGetters(["getUser", "checkAuth", "getItems", "checkItems"])
   },
   methods: {
     getData() {

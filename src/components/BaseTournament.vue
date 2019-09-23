@@ -16,23 +16,23 @@
             >$vuetify.icons.edit</v-icon>
           </div>
           <v-img
-            class="card-image white--text"
             :key="imageUrl"
+            class="card-image white--text"
             height="200px"
             :src="imageUrl"
             gradient="to top right, rgba(25,118,210,.8), rgba(25,32,72,.7)"
             transition="fade-transition"
           >
             <v-card-title class="align-end fill-height">
-              <span class="card-title">{{tournament.value.name}}</span>
+              <span class="card-title">{{ tournament.value.name }}</span>
             </v-card-title>
           </v-img>
 
           <v-card-text>
-            <span>{{formatTimestamp(parseInt(tournament.key))}}</span>
+            <span>{{ formatTimestamp(parseInt(tournament.key)) }}</span>
             <br />
             <span class="text--primary">
-              <span>{{tournament.value.location}}</span>
+              <span>{{ tournament.value.location }}</span>
             </span>
           </v-card-text>
 
@@ -53,7 +53,6 @@
             <v-tooltip bottom>
               <template v-slot:activator="{ on }">
                 <v-btn
-                  v-on="on"
                   class="mx-2"
                   fab
                   dark
@@ -61,6 +60,7 @@
                   color="success"
                   :href="formatDirections()"
                   target="_blank"
+                  v-on="on"
                 >
                   <v-icon>$vuetify.icons.directions</v-icon>
                 </v-btn>
@@ -71,7 +71,7 @@
         </v-card>
         <v-overlay :value="confirmOverlay">
           <v-card>
-            <v-card-title>{{`Are you sure you want to delete ${tournament.value.name}?`}}</v-card-title>
+            <v-card-title>{{ `Are you sure you want to delete ${tournament.value.name}?` }}</v-card-title>
             <v-card-text>This action cannot be undone...</v-card-text>
             <v-card-actions>
               <v-btn @click="onDeleteTournament">Yes</v-btn>
@@ -94,10 +94,10 @@
           </div>
 
           <v-card-title>
-            <span>{{tournament.value.name}}</span>
+            <span>{{ tournament.value.name }}</span>
           </v-card-title>
 
-          <v-card-text>{{tournament.value.description}}</v-card-text>
+          <v-card-text>{{ tournament.value.description }}</v-card-text>
 
           <v-card-actions>
             <v-btn color="primary" @click="flipped = !flipped">Back</v-btn>
@@ -106,7 +106,7 @@
       </template>
     </FlipCard>
     <v-overlay :value="editOverlay">
-      <BaseForm :imageUrl.sync="imageUrl" :overlay.sync="editOverlay" :tournament="tournament" />
+      <BaseForm :image-url.sync="imageUrl" :overlay.sync="editOverlay" :tournament="tournament" />
     </v-overlay>
   </div>
 </template>
@@ -115,15 +115,15 @@
 import FlipCard from "@/components/FlipCard.vue";
 import BaseForm from "@/components/BaseForm.vue";
 export default {
+  components: {
+    FlipCard,
+    BaseForm
+  },
   props: {
     tournament: {
       type: Object,
       required: true
     }
-  },
-  components: {
-    FlipCard,
-    BaseForm
   },
   data() {
     return {
@@ -148,15 +148,15 @@ export default {
       ]
     };
   },
-  created() {
-    this.baseUrl =
-      "https://firebasestorage.googleapis.com/v0/b/clovisnorthforensics-aaeaa.appspot.com/o/images%2F";
-    this.imageUrl = `${this.baseUrl}${this.formattedLocation}.jpg?alt=media`;
-  },
   computed: {
     formattedLocation() {
       return this.tournament.value.location.replace(" ", "%20");
     }
+  },
+  created() {
+    this.baseUrl =
+      "https://firebasestorage.googleapis.com/v0/b/clovisnorthforensics-aaeaa.appspot.com/o/images%2F";
+    this.imageUrl = `${this.baseUrl}${this.formattedLocation}.jpg?alt=media`;
   },
   methods: {
     formatTimestamp(timestamp) {

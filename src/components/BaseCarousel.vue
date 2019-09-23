@@ -9,7 +9,7 @@
         </template>
       </v-img>
       <v-item-group v-model="onboarding" class="text-center" mandatory>
-        <v-item v-for="n in carouselLength" :key="`btn-${n}`" v-slot:default="{ active, toggle }">
+        <v-item v-for="i in carouselLength" :key="`btn-${i}`" v-slot:default="{ active, toggle }">
           <v-btn :input-value="active" icon @click="toggle">
             <v-icon>mdi-record</v-icon>
           </v-btn>
