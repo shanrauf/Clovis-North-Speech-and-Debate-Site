@@ -18,7 +18,6 @@ module.exports = {
     stats: 'errors-only',
     port: 8080,
     // host: '0.0.0.0', Uncomment when want to host on your router
-    hot: true,
     quiet: true
   },
   entry: {
@@ -67,7 +66,6 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
     new VueLoaderPlugin(),
     new webpack.EnvironmentPlugin(['NODE_ENV', 'DEBUG']),
     new FriendlyErrorsPlugin(),

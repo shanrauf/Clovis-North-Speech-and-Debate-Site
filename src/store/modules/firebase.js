@@ -301,12 +301,14 @@ const actions = {
       .child(`images/${payload.location}.jpg`)
       .put(payload.imageFile, metadata)
       .then(() => {
-        commit({
-          type: 'setSnackbar',
-          color: 'success',
-          message: `Successfully uploaded ${payload.imageFile.name}. It might take awhile to see your changes.`,
-          enabled: true
-        });
+        setTimeout(() => {
+          commit({
+            type: 'setSnackbar',
+            color: 'success',
+            message: `Successfully uploaded ${payload.imageFile.name}. It might take awhile to see your changes.`,
+            enabled: true
+          });
+        }, 2000);
       });
   }
 };

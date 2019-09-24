@@ -59,9 +59,10 @@
           hide-selected
           single-line
           prepend-icon="$vuetify.icons.directions"
+          @change="updateImageFromLocation()"
         />
 
-        <v-img v-if="location" :key="imageUrl" loading :src="image" width="200" height="100"></v-img>
+        <v-img v-if="location" :key="image" loading :src="image" width="200" height="100" />
 
         <v-file-input
           v-if="location"
@@ -73,7 +74,7 @@
           label="Location photo"
           persistent-hint
           hint="This photo will override the existing photo for the selected location"
-          @change="updateImage()"
+          @change="updateImageFromFile()"
         />
 
         <v-checkbox
@@ -109,6 +110,7 @@ export default {
   },
   data() {
     return {
+      image: "",
       imageFile: null,
       mode: "create",
       baseUrl:
@@ -153,14 +155,19 @@ export default {
       locations: [
         "Clovis North High School",
         "Bakersfield High School",
-        "Granite Ridge Middle School",
         "Sanger High School",
-        "Buchanan High School",
         "Chowchilla High School",
         "Bullard High School",
         "Orosi High School",
         "Clovis East High School",
-        "UC Berkeley"
+        "UC Berkeley",
+        "Lemoore High School",
+        "Clovis High School",
+        "Edison High School",
+        "University of the Pacific (UOP)",
+        "James Logan High School",
+        "Bakersfield High School",
+        "Stockdale High School"
       ],
       checkbox: false
     };
@@ -168,18 +175,17 @@ export default {
   computed: {
     formattedLocation() {
       return this.location.replace(" ", "%20");
-    },
-    locationImg() {
-      return `${this.baseUrl}${this.formattedLocation}.jpg?alt=media`;
     }
   },
   created() {
+    this.locations = this.locations.sort();
+    this.tournamentNames = this.tournamentNames.sort();
     if (this.tournament) {
       this.mode = "edit"; // Tells Vuex to update entries, not create new entry
       this.tournamentName = this.tournament.value.name;
       this.description = this.tournament.value.description;
       this.location = this.tournament.value.location;
-      this.image = this.locationImg;
+      this.image = this.imageUrl;
       this.oldTimestamp = this.tournament.key;
       this.date = new Date(parseInt(this.oldTimestamp))
         .toISOString()
@@ -190,8 +196,14 @@ export default {
     reset() {
       this.$refs.form.reset();
     },
-    updateImage() {
+    updateImageFromFile() {
       this.image = URL.createObjectURL(this.imageFile);
+    },
+    updateImageFromLocation() {
+      if (this.imageFile) {
+        return URL.createObjectURL(this.imageFile);
+      }
+      this.image = `${this.baseUrl}${this.formattedLocation}.jpg?alt=media`;
     },
     processForm() {
       if (this.$refs.form.validate()) {
@@ -204,11 +216,13 @@ export default {
           location: this.location,
           mode: this.mode
         });
-        this.$store.dispatch({
-          type: "uploadImage",
-          imageFile: this.imageFile,
-          location: this.location // used to rename file
-        });
+        if (this.imageFile) {
+          this.$store.dispatch({
+            type: "uploadImage",
+            imageFile: this.imageFile,
+            location: this.location // used to rename file
+          });
+        }
         this.$emit("update:overlay", false);
         this.$emit("update:imageUrl", this.image);
       }

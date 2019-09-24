@@ -12,7 +12,7 @@
         </v-row>
       </template>
 
-      <template v-slot:no-data>
+      <template v-slot:no-data v-if="$route.path.includes('/admin')">
         <v-alert color="primary" icon="info">Create a tournament below:</v-alert>
         <BaseCreateNewCard />
       </template>
@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import BaseCreateNewCard from "@/components/BaseCreateNewCard.vue";
 import BaseTournament from "@/components/BaseTournament.vue";
 

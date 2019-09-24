@@ -1,6 +1,6 @@
 <template>
-  <div :class="{'tournament-overlay': oldTournament}">
-    <FlipCard :flipped="flipped">
+  <div>
+    <FlipCard :flipped="flipped" :class="{'grayscale-overlay': oldTournament}">
       <template slot="front">
         <v-card class="tournament-card mx-auto" max-width="450" height="350px" raised>
           <div v-if="$route.path.includes('/admin')">
@@ -106,7 +106,7 @@
       </template>
     </FlipCard>
     <v-overlay :value="editOverlay">
-      <BaseForm :image-url.sync="imageUrl" :overlay.sync="editOverlay" :tournament="tournament" />
+      <BaseForm :imageUrl.sync="imageUrl" :overlay.sync="editOverlay" :tournament="tournament" />
     </v-overlay>
   </div>
 </template>
@@ -131,7 +131,7 @@ export default {
       editOverlay: false,
       flipped: false,
       confirmOverlay: false,
-      formOverlay: false, // find way to open form filled out w correct tournament info
+      formOverlay: false,
       months_arr: [
         "Jan",
         "Feb",
@@ -222,7 +222,7 @@ export default {
 .card-description {
   overflow: auto;
 }
-.tournament-overlay {
+.grayscale-overlay {
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);
   -ms-filter: grayscale(100%);
