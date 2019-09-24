@@ -12,7 +12,7 @@
         </v-row>
       </template>
 
-      <template v-slot:no-data v-if="$route.path.includes('/admin')">
+      <template v-if="$route.path.includes('/admin')" v-slot:no-data>
         <v-alert color="primary" icon="info">Create a tournament below:</v-alert>
         <BaseCreateNewCard />
       </template>

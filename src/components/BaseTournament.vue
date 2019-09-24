@@ -106,7 +106,7 @@
       </template>
     </FlipCard>
     <v-overlay :value="editOverlay">
-      <BaseForm :imageUrl.sync="imageUrl" :overlay.sync="editOverlay" :tournament="tournament" />
+      <BaseForm :image-url.sync="imageUrl" :overlay.sync="editOverlay" :tournament="tournament" />
     </v-overlay>
   </div>
 </template>
