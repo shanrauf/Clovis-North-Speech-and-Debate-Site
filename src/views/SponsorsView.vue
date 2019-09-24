@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="sponsors" class="container-fluid">
+    <v-container class="sponsors">
       <h1>
         <strong>Sponsor Clovis North Forensics</strong>
       </h1>
@@ -26,74 +26,78 @@
         <li>Non-Profit 501(C) (3) -- TAX – ID # 71-1036638</li>
         <li>All proceeds benefit the members of the Clovis North Forensics Team</li>
       </ul>
-    </div>
+    </v-container>
     <!-- Contact Us Form -->
-    <div>
-      <div id="contact-us" class="container-fluid">
-        <div class="col-md-6 col-md-offset-3">
-          <div class="contact-title">
-            <h2>Sponsorship Form</h2>
-            <p>Fill out the form below and we will get back to you as soon as possible</p>
-          </div>
-
-          <form name="sponsorship" method="POST" netlify>
-            <div class="col-sm-6 form-group">
-              <label for="companyName">Company Name:</label>
-              <input id="email" type="text" class="form-control" name="Company Name" maxlength="50" />
-            </div>
-            <div class="col-sm-6 form-group">
-              <label for="email">E-mail:</label>
-              <input
-                id="phone"
-                type="tel"
-                class="form-control"
-                name="email"
-                required
-                maxlength="50"
-              />
-            </div>
-
-            <div class="row">
-              <div class="col-sm-12 form-group">
-                <label for="name">Message:</label>
-                <textarea
-                  id="message"
-                  class="form-control"
-                  type="textarea"
-                  name="message"
-                  placeholder="Your Message Here"
-                  maxlength="6000"
-                  rows="7"
-                ></textarea>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12 form-group">
-                <button type="submit" class="contact-us-submit">
-                  <strong>Submit</strong>
-                </button>
-              </div>
-            </div>
-          </form>
-          <div id="success_message" style="width:100%; height:100%; display:none; ">
-            <h3>Sent your message successfully!</h3>
-          </div>
-          <div id="error_message" style="width:100%; height:100%; display:none; ">
-            <h3>Error</h3>Sorry there was an error sending your form.
-          </div>
+    <v-container id="contact-us">
+      <v-col cols="12" sm="6">
+        <div class="contact-title">
+          <h2>Sponsorship Form</h2>
+          <p>Fill out the form below and we will get back to you as soon as possible</p>
         </div>
-      </div>
-    </div>
+
+        <form name="contact" method="POST" netlify>
+          <v-row>
+            <v-col cols="12" sm="6">
+              <v-text-field
+                v-model="firstName"
+                label="Company Name"
+                type="text"
+                name="companyname"
+                maxlength="50"
+              ></v-text-field>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12" sm="6">
+              <v-text-field v-model="email" label="E-mail" type="text" name="email" maxlength="50"></v-text-field>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-textarea
+              v-model="message"
+              filled
+              auto-grow
+              label="Message"
+              type="textarea"
+              name="message"
+              placeholder="Your Message Here"
+              maxlength="6000"
+              rows="7"
+            ></v-textarea>
+          </v-row>
+          <v-row>
+            <v-col cols="12" sm="6">
+              <button type="submit" class="contact-us-submit">
+                <strong>Submit</strong>
+              </button>
+            </v-col>
+          </v-row>
+        </form>
+        <div id="success_message" style="width:100%; height:100%; display:none; ">
+          <h3>Sent your message successfully!</h3>
+        </div>
+        <div id="error_message" style="width:100%; height:100%; display:none; ">
+          <h3>Error</h3>Sorry there was an error sending your form.
+        </div>
+      </v-col>
+    </v-container>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      companyName: "",
+      email: "",
+      message: ""
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-#sponsors {
-  display: inline-block;
+.sponsors {
   float: left;
   width: 50%;
 }

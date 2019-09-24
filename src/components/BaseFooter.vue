@@ -16,7 +16,9 @@
           <router-link to="/contact">Contact Us</router-link>
         </p>
 
-        <p class="footer-company-name">Clovis North Forensics &copy; 2018</p>
+        <p
+          class="footer-company-name"
+        >Clovis North Forensics &copy; {{new Date(Date.now()).getYear() + 1900}}</p>
       </div>
 
       <div class="footer-center">
