@@ -1,11 +1,23 @@
 <template>
-  <div>
-    <p>Coming soon...</p>
-  </div>
+  <v-container>
+    <BaseDataIterator :items="getItems('tournaments')" :create-new-button="false" :items-per-page="16" />
+  </v-container>
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+import BaseDataIterator from "@/components/BaseDataIterator.vue";
+export default {
+  components: {
+    BaseDataIterator
+  },
+  computed: {
+    ...mapGetters(["getUser", "checkAuth", "getItems", "checkItems"])
+  },
+  created() {
+    this.$store.dispatch("createTournaments");
+  }
+};
 </script>
 
 <style lang="scss" scoped>

@@ -13,7 +13,12 @@
 
     <br />
 
-    <BaseDataIterator v-if="currentComponent" :items="getData()" :create-new-button="true" />
+    <BaseDataIterator
+      v-if="currentComponent"
+      :items="getData()"
+      :create-new-button="true"
+      :items-per-page="8"
+    />
   </v-container>
 </template>
 
@@ -31,7 +36,6 @@ export default {
       editableComponents: [
         "Slideshow",
         "Tournaments",
-        "Calendar",
         "Sponsors",
         "Announcements",
         "About"
@@ -47,13 +51,10 @@ export default {
       this.checkAuth.then(user => {
         if (user) {
           this.$store.dispatch("createUser", user);
-          // this.$store.dispatch("createSomething", user.uid);
         } else {
           this.$store.dispatch("sendToLogin");
         }
       });
-    } else {
-      // this.$store.dispatch("createSomething", currentUser.uid);
     }
   },
   methods: {

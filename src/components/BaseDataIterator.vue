@@ -1,6 +1,11 @@
 <template>
   <v-container fluid>
-    <v-data-iterator :page="page" :items="items" :items-per-page="itemsPerPage" hide-default-footer>
+    <v-data-iterator
+      :page="page"
+      :items="items"
+      :items-per-page="formattedItemsPerPage"
+      hide-default-footer
+    >
       <template v-slot:default="props">
         <v-row wrap>
           <v-col v-if="page == 1 && createNewButton" cols="12" sm="6" md="4" lg="3">
@@ -25,7 +30,7 @@
 </template>
 
 <script>
-import BaseCreateNewCard from "@/components/BaseCreateNewCard.vue";
+const BaseCreateNewCard = () => import("@/components/BaseCreateNewCard.vue");
 import BaseTournament from "@/components/BaseTournament.vue";
 
 export default {
@@ -41,6 +46,10 @@ export default {
     items: {
       type: Array,
       required: true
+    },
+    itemsPerPage: {
+      type: Number,
+      required: true
     }
   },
   data() {
@@ -49,15 +58,15 @@ export default {
     };
   },
   computed: {
-    itemsPerPage() {
+    formattedItemsPerPage() {
       if (this.createNewButton && this.page == 1) {
-        return 7;
+        return 1 + this.itemsPerPage;
       } else {
-        return 8;
+        return this.itemsPerPage;
       }
     },
     numberOfPages() {
-      return Math.ceil(this.items.length / this.itemsPerPage);
+      return Math.ceil(this.items.length / this.formattedItemsPerPage);
     },
     showPagination() {
       if (this.items.length > 7 && createNewButton) {

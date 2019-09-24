@@ -24,7 +24,6 @@
         <v-tab to="/">Home</v-tab>
         <v-tab to="/about">About Us</v-tab>
         <v-tab to="/tournaments">Tournaments</v-tab>
-        <v-tab to="/calendar">Calendar</v-tab>
         <v-tab to="/sponsors">Our Sponsors</v-tab>
         <v-tab to="/donate">Donate</v-tab>
         <v-tab to="/contact">Contact Us</v-tab>

@@ -5,7 +5,6 @@ Vue.use(VueRouter);
 const HomeView = () => import('@/views/HomeView.vue');
 const AboutView = () => import('@/views/AboutView.vue');
 const TournamentsView = () => import('@/views/TournamentsView.vue');
-const CalendarView = () => import('@/views/CalendarView.vue');
 const SponsorsView = () => import('@/views/SponsorsView.vue');
 const DonateView = () => import('@/views/DonateView.vue');
 const ContactView = () => import('@/views/ContactView.vue');
@@ -41,15 +40,6 @@ const routes = [
       requiresAuth: true
     },
     component: TournamentsView
-  },
-  {
-    path: '/calendar',
-    meta: {
-      name: 'Calendar Page',
-      title: 'CN Forensics | Calendar',
-      requiresAuth: true
-    },
-    component: CalendarView
   },
   {
     path: '/sponsors',

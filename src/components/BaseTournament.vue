@@ -1,6 +1,9 @@
 <template>
   <div>
-    <FlipCard :flipped="flipped" :class="{'grayscale-overlay': oldTournament}">
+    <FlipCard
+      :flipped="flipped"
+      :class="{'grayscale-overlay': Date.now() - parseInt(this.tournament.key) > 172800000}"
+    >
       <template slot="front">
         <v-card class="tournament-card mx-auto" max-width="450" height="350px" raised>
           <div v-if="$route.path.includes('/admin')">
@@ -186,13 +189,6 @@ export default {
     onDeleteTournament() {
       this.$store.dispatch("onDeleteTournament", this.tournament);
       this.confirmOverlay = false;
-    },
-    oldTournament() {
-      if (this.formatTimestamp(parseInt(tournament.key)) > 172800000) {
-        return true;
-      } else {
-        return false;
-      }
     }
   }
 };
