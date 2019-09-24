@@ -162,21 +162,22 @@ export default {
     formatTimestamp(timestamp) {
       let currentTime = Date.now();
       let timeDifference = currentTime - timestamp;
-      if (timeDifference < 86400000) {
+      if (timeDifference < 86400000 && Math.sign(timeDifference) != -1) {
         return "Today";
       }
-      if (timeDifference > 86400000 && timeDifference < 172800000) {
+      if (
+        timeDifference > 86400000 &&
+        timeDifference < 172800000 &&
+        Math.sign(timeDifference) != -1
+      ) {
         return "Yesterday";
       }
       timestamp = new Date(timestamp);
       let year = timestamp.getFullYear();
       let month = this.months_arr[timestamp.getMonth()];
       let day = timestamp.getDate();
-      let strTime = timestamp
-        .toLocaleTimeString()
-        .replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
-      // MM dd, yyyy hh:mm AM/PM format
-      let formattedTime = month + " " + day + ", " + year + " " + strTime;
+      // MM dd, yyyy format
+      let formattedTime = month + " " + day + ", " + year;
       return formattedTime;
     },
     formatDirections() {

@@ -210,7 +210,7 @@ export default {
         this.$store.dispatch({
           type: "onUpdateTournament",
           name: this.tournamentName,
-          timestamp: new Date(this.date + "T07:00:00Z").getTime(),
+          timestamp: parseInt(new Date(this.date + "T07:00:00.000Z").getTime()),
           oldTimestamp: this.oldTimestamp,
           description: this.description,
           location: this.location,
