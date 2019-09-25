@@ -4,7 +4,8 @@
       <h2>Contact Us</h2>
       <p>Send us your message and we will get back to you as soon as possible</p>
     </div>
-    <form name="contact" method="POST" data-netlify="true">
+    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input type="hidden" name="contact" value="contact" />
       <v-row>
         <v-col cols="12" sm="6">
           <v-text-field
