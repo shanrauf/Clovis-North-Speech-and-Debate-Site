@@ -35,8 +35,8 @@
           <p>Fill out the form below and we will get back to you as soon as possible</p>
         </div>
 
-        <form name="sponsorship" method="POST" data-netlify="true" ata-netlify-honeypot="bot-field">
-          <input type="hidden" name="contact" value="sponsorship" />
+        <form name="sponsorship" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="bot-field" value="bot-field" />
           <v-row>
             <v-col cols="12" sm="6">
               <v-text-field

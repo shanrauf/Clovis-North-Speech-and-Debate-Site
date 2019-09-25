@@ -10,6 +10,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
+const Renderer = PrerenderSPAPlugin.PuppeteerRenderer;
 
 module.exports = {
   mode: 'production',
@@ -108,14 +109,6 @@ module.exports = {
     new CopyPlugin([{ from: 'src/assets', to: 'assets/' }], {
       copyUnmodified: true
     }),
-    new PrerenderSPAPlugin(
-      // Absolute path to compiled SPA so Netlify forms work
-      path.resolve(__dirname, 'dist'),
-      ['/contact', '/sponsors'],
-      {
-        // options
-      }
-    ),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       filename: 'index.html',
@@ -125,6 +118,16 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
       ignoreOrder: true
+    }),
+    new PrerenderSPAPlugin({
+      staticDir: path.join(__dirname, '../dist'),
+      outputDir: path.join(__dirname, '../dist'),
+      routes: ['/contact', '/sponsors'],
+
+      renderer: new Renderer({
+        headless: true
+      }),
+      inject: {}
     })
   ],
   output: {
