@@ -34,11 +34,7 @@ export default {
     return {
       currentComponent: "",
       editableComponents: [
-        "Slideshow",
         "Tournaments",
-        "Sponsors",
-        "Announcements",
-        "About"
       ]
     };
   },

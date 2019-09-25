@@ -35,7 +35,7 @@
           <p>Fill out the form below and we will get back to you as soon as possible</p>
         </div>
 
-        <form name="contact" method="POST" netlify>
+        <form name="sponsorship" method="POST" data-netlify="true">
           <v-row>
             <v-col cols="12" sm="6">
               <v-text-field
