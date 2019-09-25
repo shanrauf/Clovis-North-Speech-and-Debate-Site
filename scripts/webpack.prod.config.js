@@ -9,8 +9,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
-const PrerenderSPAPlugin = require('prerender-spa-plugin');
-const Renderer = PrerenderSPAPlugin.PuppeteerRenderer;
 
 module.exports = {
   mode: 'production',
@@ -118,16 +116,6 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
       ignoreOrder: true
-    }),
-    new PrerenderSPAPlugin({
-      staticDir: path.join(__dirname, '../dist'),
-      outputDir: path.join(__dirname, '../dist'),
-      routes: ['/contact', '/sponsors'],
-
-      renderer: new Renderer({
-        headless: true
-      }),
-      inject: {}
     })
   ],
   output: {
