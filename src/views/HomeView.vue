@@ -5,11 +5,7 @@
     <br />
 
     <h1 align="center">Upcoming Tournaments</h1>
-    <BaseDataIterator
-      :items="getItems('tournaments')"
-      :create-new-button="false"
-      :items-per-page="4"
-    />
+    <BaseDataIterator :items="getUpcomingTournaments" :createNewButton="false" :itemsPerPage="4" />
   </div>
 </template>
 <script>
@@ -23,7 +19,7 @@ export default {
     BaseDataIterator
   },
   computed: {
-    ...mapGetters(["getItems"])
+    ...mapGetters(["getUpcomingTournaments"])
   },
   beforeCreate() {
     this.$store.dispatch("createTournaments");

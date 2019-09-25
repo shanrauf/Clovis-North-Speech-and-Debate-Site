@@ -5,9 +5,7 @@ Vue.use(VueRouter);
 const HomeView = () => import('@/views/HomeView.vue');
 const AboutView = () => import('@/views/AboutView.vue');
 const TournamentsView = () => import('@/views/TournamentsView.vue');
-import SponsorsView from '@/views/SponsorsView.vue';
 const DonateView = () => import('@/views/DonateView.vue');
-import ContactView from '@/views/ContactView.vue';
 const LoginView = () => import('@/views/LoginView.vue');
 const AdminView = () => import('@/views/AdminView.vue');
 const RegisterView = () => import('@/views/RegisterView.vue');
@@ -42,15 +40,6 @@ const routes = [
     component: TournamentsView
   },
   {
-    path: '/sponsors',
-    meta: {
-      name: 'Sponsors Page',
-      title: 'CN Forensics | Sponsors',
-      requiresAuth: true
-    },
-    component: SponsorsView
-  },
-  {
     path: '/donate',
     meta: {
       name: 'Sponsors Page',
@@ -58,15 +47,6 @@ const routes = [
       requiresAuth: true
     },
     component: DonateView
-  },
-  {
-    path: '/contact',
-    meta: {
-      name: 'Contact Page',
-      title: 'CN Forensics | Contact Us',
-      requiresAuth: true
-    },
-    component: ContactView
   },
   {
     path: '/login',

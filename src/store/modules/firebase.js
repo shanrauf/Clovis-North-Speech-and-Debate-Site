@@ -48,6 +48,19 @@ const getters = {
     });
   },
   checkItems: state => items => !!state[items],
+  getUpcomingTournaments: state => {
+    let now = Date.now();
+    let upcomingTournaments = [];
+    state.tournaments.forEach(tournament => {
+      if (parseInt(tournament.key) > now) {
+        upcomingTournaments.push(tournament);
+      }
+    });
+    return upcomingTournaments.slice(
+      upcomingTournaments.length - 4,
+      upcomingTournaments.length
+    );
+  },
   getUpdatesOverlay: state => state.updatesOverlay,
   getItems: state => itemsToGet => state[itemsToGet],
   getLastSeenUpdate: state => state.lastSeenUpdate,

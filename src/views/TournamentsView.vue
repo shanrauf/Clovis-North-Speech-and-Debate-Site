@@ -1,6 +1,11 @@
 <template>
   <v-container>
-    <BaseDataIterator :items="getItems('tournaments')" :create-new-button="false" :items-per-page="16" />
+    <h1 align="center">Tournaments</h1>
+    <BaseDataIterator
+      :items="getItems('tournaments')"
+      :create-new-button="false"
+      :items-per-page="16"
+    />
   </v-container>
 </template>
 
