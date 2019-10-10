@@ -56,10 +56,14 @@ const getters = {
         upcomingTournaments.push(tournament);
       }
     });
-    return upcomingTournaments.slice(
-      upcomingTournaments.length - 4,
-      upcomingTournaments.length
-    );
+    if (upcomingTournaments.length > 4) {
+      return upcomingTournaments.slice(
+        upcomingTournaments.length - 4,
+        upcomingTournaments.length
+      );
+    } else {
+      return upcomingTournaments;
+    }
   },
   getUpdatesOverlay: state => state.updatesOverlay,
   getItems: state => itemsToGet => state[itemsToGet],
