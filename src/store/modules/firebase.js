@@ -19,6 +19,39 @@ firebase.initializeApp(config);
 const database = firebase.database();
 const storageRef = firebase.storage().ref();
 
+const hardcodedTournaments = {
+  "1568444400000": {
+    "description": "This tournament is for novice debaters who have never competed in a debate tournament before, making this tournament an optimal tournament for beginners.",
+    "location": "Lemoore High School",
+    "name": "Novice I.E"
+  },
+  "1569049200000": {
+    "description": "This tournament is for novice debaters who have never competed in a debate tournament before, making this tournament an optimal tournament for beginners.",
+    "location": "Orosi High School",
+    "name": "Novice Debate"
+  },
+  "1570258800000": {
+    "description": "This is the first of 3 speech tournaments (practice for state/national qualifiers)",
+    "location": "Clovis High School",
+    "name": "I.E #1"
+  },
+  "1570863600000": {
+    "description": "This is the first of 3 debate tournaments (earning seeding at state/national qualifiers)",
+    "location": "Edison High School",
+    "name": "Wahzoo #1"
+  },
+  "1572678000000": {
+    "description": "This is the second of 3 speech tournaments (practice for state/national qualifiers)",
+    "location": "Bullard High School",
+    "name": "I.E #2"
+  },
+  "1573282800000": {
+    "description": "This is the second of 3 debate tournaments (earning seeding at state/national qualifiers)",
+    "location": "Lemoore High School",
+    "name": "Wahzoo #2"
+  }
+};
+
 const state = () => {
   return {
     user: null,
@@ -49,21 +82,22 @@ const getters = {
   },
   checkItems: state => items => !!state[items],
   getUpcomingTournaments: state => {
-    let now = Date.now();
-    let upcomingTournaments = [];
-    state.tournaments.forEach(tournament => {
-      if (parseInt(tournament.key) > now) {
-        upcomingTournaments.push(tournament);
-      }
-    });
-    if (upcomingTournaments.length > 4) {
-      return upcomingTournaments.slice(
-        upcomingTournaments.length - 4,
-        upcomingTournaments.length
-      );
-    } else {
-      return upcomingTournaments;
-    }
+    // let now = Date.now();
+    // let upcomingTournaments = [];
+    // state.tournaments.forEach(tournament => {
+    //   if (parseInt(tournament.key) > now) {
+    //     upcomingTournaments.push(tournament);
+    //   }
+    // });
+    // if (upcomingTournaments.length > 4) {
+    //   return upcomingTournaments.slice(
+    //     upcomingTournaments.length - 4,
+    //     upcomingTournaments.length
+    //   );
+    // } else {
+    //   return upcomingTournaments;
+    // }
+    return state.tournaments.slice(0, 4);
   },
   getUpdatesOverlay: state => state.updatesOverlay,
   getItems: state => itemsToGet => state[itemsToGet],
@@ -237,13 +271,8 @@ const actions = {
       });
   },
   async createTournaments({ commit }) {
-    await database
-      .ref('tournaments/')
-      .once('value')
-      .then(snap => {
-        commit('setTournaments', snap.val());
-      });
-  },
+    commit('setTournaments', hardcodedTournaments);
+    },
   async updateLastSeenUpdate({ commit, state }) {
     let now = Date.now();
     await database.ref('lastSeenUpdate/' + state.user.uid).set(now, error => {

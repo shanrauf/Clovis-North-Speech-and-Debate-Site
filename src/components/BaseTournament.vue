@@ -2,21 +2,31 @@
   <div>
     <FlipCard
       :flipped="flipped"
-      :class="{'grayscale-overlay': Date.now() - parseInt(this.tournament.key) > 172800000}"
+      :class="{
+        'grayscale-overlay':
+          Date.now() - parseInt(this.tournament.key) > 172800000,
+      }"
     >
       <template slot="front">
-        <v-card class="tournament-card mx-auto" max-width="450" height="350px" raised>
+        <v-card
+          class="tournament-card mx-auto"
+          max-width="450"
+          height="350px"
+          raised
+        >
           <div v-if="$route.path.includes('/admin')">
             <v-icon
               color="white"
               class="close-icon-corner"
               @click="confirmOverlay = true"
-            >$vuetify.icons.close</v-icon>
+              >$vuetify.icons.close</v-icon
+            >
             <v-icon
               color="white"
               class="edit-icon-corner"
               @click="editOverlay = true"
-            >$vuetify.icons.edit</v-icon>
+              >$vuetify.icons.edit</v-icon
+            >
           </div>
           <v-img
             :key="imageUrl"
@@ -44,12 +54,14 @@
               v-if="tournament.value.description"
               color="primary"
               @click="flipped = !flipped"
-            >More Info</v-btn>
+              >More Info</v-btn
+            >
             <v-btn
               v-if="tournament.value.results"
               color="orange"
               @click="confirmOverlay = !confirmOverlay"
-            >Results</v-btn>
+              >Results</v-btn
+            >
 
             <div class="flex-grow-1" />
 
@@ -74,7 +86,9 @@
         </v-card>
         <v-overlay :value="confirmOverlay">
           <v-card>
-            <v-card-title>{{ `Are you sure you want to delete ${tournament.value.name}?` }}</v-card-title>
+            <v-card-title>{{
+              `Are you sure you want to delete ${tournament.value.name}?`
+            }}</v-card-title>
             <v-card-text>This action cannot be undone...</v-card-text>
             <v-card-actions>
               <v-btn @click="onDeleteTournament">Yes</v-btn>
@@ -92,8 +106,12 @@
           raised
         >
           <div v-if="$route.path.includes('/admin')">
-            <v-icon class="close-icon-corner" @click="confirmOverlay = true">$vuetify.icons.close</v-icon>
-            <v-icon class="edit-icon-corner" @click="formOverlay = true">$vuetify.icons.edit</v-icon>
+            <v-icon class="close-icon-corner" @click="confirmOverlay = true"
+              >$vuetify.icons.close</v-icon
+            >
+            <v-icon class="edit-icon-corner" @click="formOverlay = true"
+              >$vuetify.icons.edit</v-icon
+            >
           </div>
 
           <v-card-title>
@@ -109,88 +127,91 @@
       </template>
     </FlipCard>
     <v-overlay :value="editOverlay">
-      <BaseForm :image-url.sync="imageUrl" :overlay.sync="editOverlay" :tournament="tournament" />
+      <BaseForm
+        :image-url.sync="imageUrl"
+        :overlay.sync="editOverlay"
+        :tournament="tournament"
+      />
     </v-overlay>
   </div>
 </template>
 
 <script>
-import FlipCard from "@/components/FlipCard.vue";
-import BaseForm from "@/components/BaseForm.vue";
+import FlipCard from '@/components/FlipCard.vue';
+import BaseForm from '@/components/BaseForm.vue';
 export default {
   components: {
     FlipCard,
-    BaseForm
+    BaseForm,
   },
   props: {
     tournament: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
-      imageUrl: "",
+      imageUrl: '',
       editOverlay: false,
       flipped: false,
       confirmOverlay: false,
       formOverlay: false,
       months_arr: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec"
-      ]
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
+      ],
     };
   },
   computed: {
     formattedLocation() {
-      return this.tournament.value.location.replace(" ", "%20");
-    }
+      return this.tournament.value.location.replace(' ', '%20');
+    },
   },
   created() {
-    this.baseUrl =
-      "https://firebasestorage.googleapis.com/v0/b/clovisnorthforensics-aaeaa.appspot.com/o/images%2F";
-    this.imageUrl = `${this.baseUrl}${this.formattedLocation}.jpg?alt=media`;
+    this.baseUrl = '../assets/images/schools';
+    this.imageUrl = `${this.baseUrl}/${this.tournament.value.location}.jpg`;
   },
   methods: {
     formatTimestamp(timestamp) {
       let currentTime = Date.now();
       let timeDifference = currentTime - timestamp;
       if (timeDifference < 86400000 && Math.sign(timeDifference) != -1) {
-        return "Today";
+        return 'Today';
       }
       if (
         timeDifference > 86400000 &&
         timeDifference < 172800000 &&
         Math.sign(timeDifference) != -1
       ) {
-        return "Yesterday";
+        return 'Yesterday';
       }
       timestamp = new Date(timestamp);
       let year = timestamp.getFullYear();
       let month = this.months_arr[timestamp.getMonth()];
       let day = timestamp.getDate();
       // MM dd, yyyy format
-      let formattedTime = month + " " + day + ", " + year;
+      let formattedTime = month + ' ' + day + ', ' + year;
       return formattedTime;
     },
     formatDirections() {
-      return "https://google.com/maps/search/" + this.tournament.value.location;
+      return 'https://google.com/maps/search/' + this.tournament.value.location;
     },
     onDeleteTournament() {
-      this.$store.dispatch("onDeleteTournament", this.tournament);
+      this.$store.dispatch('onDeleteTournament', this.tournament);
       this.confirmOverlay = false;
-    }
-  }
+    },
+  },
 };
 </script>
 
