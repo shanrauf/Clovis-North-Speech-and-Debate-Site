@@ -8,6 +8,8 @@ This is the website for the Clovis North High School Speech & Debate (Forensics)
 - Online donation feature
 - Admin dashboard (using Firebase) to update the tournament data on the website
 
-Access it [here](https://master--affectionate-mccarthy-047afa.netlify.app/).
+## Demo
+
+Access the demo here: https://cnspeechanddebate.netlify.app/
 
 ![picture](src/assets/images/logo.png)
